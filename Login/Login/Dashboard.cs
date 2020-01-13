@@ -17,9 +17,11 @@ namespace Login
         MySqlConnection mysqlCon = new MySqlConnection("server=192.168.8.14;uid=root;pwd=root;database=DoggoFeedr;");
         MySqlCommand cmd;
         MySqlDataAdapter adapt;
+        Account _account;
 
-        public Dashboard()
+        public Dashboard(Account account)
         {
+            _account = account;
             InitializeComponent();
         }
 

@@ -16,7 +16,7 @@ namespace Login
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            var dashboard = new Dashboard();
+            var dashboard = new Dashboard(new Account());
             var main = new Main();
             var loginform = new LoginForm();
             loginform.Show();

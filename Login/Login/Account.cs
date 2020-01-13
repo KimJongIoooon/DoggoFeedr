@@ -9,7 +9,7 @@ using MySql.Data.MySqlClient;
 
 namespace Login
 {
-    class Account
+    public class Account
     {
         private MySqlConnection con = new MySqlConnection("server=192.168.8.14;uid=root;pwd=root;database=DoggoFeedr;");
         private MySqlDataAdapter login;
@@ -31,7 +31,7 @@ namespace Login
             {
                 var loginform = new LoginForm();
                 loginform.Hide();
-                var dashboard = new Dashboard();
+                var dashboard = new Dashboard(this);
                 dashboard.Show();
                 return true;
             }
