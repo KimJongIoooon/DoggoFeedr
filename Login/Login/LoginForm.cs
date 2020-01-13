@@ -32,6 +32,7 @@ namespace Login
             {
                 this.Hide();
                 Account.getId(userName.Text, passWord.Text);
+                Account.getName(userName.Text);
             }
         }
 

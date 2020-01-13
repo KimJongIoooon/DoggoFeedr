@@ -54,6 +54,7 @@
     <Compile Include="Dashboard.Designer.cs">
       <DependentUpon>Dashboard.cs</DependentUpon>
     </Compile>
+    <Compile Include="Database.cs" />
     <Compile Include="LogEntry.cs" />
     <Compile Include="Create.cs">
       <SubType>Form</SubType>

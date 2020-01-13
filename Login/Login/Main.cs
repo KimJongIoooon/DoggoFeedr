@@ -46,7 +46,7 @@ namespace Login
             var login = new LoginForm();
             var Account = new Account();
             // label1.Text = "Account Id: " + Account.Id;
-            label1.Text = "ID: " + Account.getId(Account.Name, "root");
+            // label1.Text = "ID: " + Account.getId(Account.Name, "root");
         }
     }
 }

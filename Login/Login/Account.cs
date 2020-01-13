@@ -26,19 +26,8 @@ namespace Login
         
         public bool Login(string username, string password)
         {
-            login = new MySqlDataAdapter("SELECT COUNT(*) FROM Account WHERE Name ='" + username + "' AND Password ='" + password + "'", con);
-            DataTable logindata = new DataTable();
-
-            try
-            {
-                login.Fill(logindata);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-
-            if (logindata.Rows[0][0].ToString() == "1")
+            var Database = new Database();
+            if (Database.login(username, password))
             {
                 var loginform = new LoginForm();
                 loginform.Hide();
@@ -55,13 +44,10 @@ namespace Login
 
         public void Logout()
         {
-            var dashboard = new Dashboard();
-            dashboard.Close();
-            var loginform = new LoginForm();
-            loginform.Show();
+            int? Id = null;
         }
 
-        public int getId(string username, string password)
+        public void getId(string username, string password)
         {
             idSelect = new MySqlDataAdapter("SELECT Id FROM Account WHERE Name ='" + username + "' AND Password ='" + password + "'", con);
             DataTable iddata = new DataTable();
@@ -83,15 +69,11 @@ namespace Login
             {
                 Id = Convert.ToInt32(iddata.Rows[0][0]);
             }
-
-            return Id;
         }
 
-        string getName()
+        public void getName(string name)
         {
-
-
-            return Name;
+            Name = name;
         }
 
         public void changeName(string name)

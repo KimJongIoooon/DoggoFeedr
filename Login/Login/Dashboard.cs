@@ -96,6 +96,9 @@ namespace Login
         {
             var Account = new Account();
             Account.Logout();
+            this.Close();
+            var loginform = new LoginForm();
+            loginform.Show();
         }
     }
 }
