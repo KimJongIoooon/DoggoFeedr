@@ -1,0 +1,95 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+using MySql.Data.MySqlClient;
+
+namespace GUIDoggoFeedr
+{
+    public partial class Dashboard : Form
+    {
+        MySqlConnection mysqlCon = new MySqlConnection("server=192.168.8.14;uid=root;pwd=root;database=DoggoFeedr;");
+        MySqlCommand cmd;
+        MySqlDataAdapter adapt;
+
+        public Dashboard()
+        {
+            InitializeComponent();
+        }
+
+        private void Dashboard_Load(object sender, EventArgs e)
+        {
+            dogData();
+            foodData();
+            label11.Text = progressBar.Value.ToString() + " %";
+        }
+
+        public void showPercentage()
+        {
+            progressBar.Refresh();
+            int percent = (int)(((double)progressBar.Value / (double)progressBar.Maximum) * 100);
+            progressBar.CreateGraphics().DrawString(percent.ToString() + "%", new Font("Arial", (float)8.25, FontStyle.Regular), new SolidBrush(Color.Black), new PointF(progressBar.Width / 2 - 10, progressBar.Height / 2 - 7));
+        }
+
+        public void dogData()
+        {
+            mysqlCon.Open();
+            adapt = new MySqlDataAdapter();
+
+            string sqlSelectAll = "SELECT * FROM Dog";
+
+            adapt.SelectCommand = new MySqlCommand(sqlSelectAll, mysqlCon);
+
+            MySqlDataReader rdr = adapt.SelectCommand.ExecuteReader();
+
+            while (rdr.Read())
+            {
+                dogName.Text = rdr.GetString(2);
+                bodyWeight.Text = Convert.ToString(rdr.GetInt32(3));
+            }
+
+
+            mysqlCon.Close();
+        }
+
+        public void foodData()
+        {
+            mysqlCon.Open();
+            adapt = new MySqlDataAdapter();
+
+            string sqlSelectAll = "SELECT * FROM Food";
+
+            adapt.SelectCommand = new MySqlCommand(sqlSelectAll, mysqlCon);
+
+            MySqlDataReader rdr = adapt.SelectCommand.ExecuteReader();
+
+            while (rdr.Read())
+            {
+                foodType.Text = rdr.GetString(2);
+            }
+
+            mysqlCon.Close();
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            label7.Text = DateTime.Now.ToString();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            for (int i = 0; i <= progressBar.Maximum; i++)
+            {
+                progressBar.Value = i;
+                label11.Refresh();
+                label11.Text = progressBar.Value.ToString() + " %";
+            }
+        }
+    }
+}

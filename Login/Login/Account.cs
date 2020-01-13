@@ -5,18 +5,19 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data;
 using System.Windows.Forms;
+using GUIDoggoFeedr;
 using MySql.Data.MySqlClient;
 
 namespace Login
 {
     class Account
     {
-        private MySqlConnection con = new MySqlConnection("server=192.168.8.14;uid=colin;pwd=root;database=DoggoFeedr;");
+        private MySqlConnection con = new MySqlConnection("server=192.168.8.14;uid=root;pwd=root;database=DoggoFeedr;");
         private MySqlDataAdapter login;
         private MySqlDataAdapter idSelect;
         
-        public static int Id { get; private set; }
-        public static string Name { get; private set; } 
+        public static int Id { get; private set; } 
+        public static string Name { get; private set; }
         string Password;
         string Email;
         bool isLoggedIn;
@@ -40,8 +41,8 @@ namespace Login
 
             if (logindata.Rows[0][0].ToString() == "1")
             {
-                Main log = new Main();
-                log.Show();
+                var dashboard = new Dashboard();
+                dashboard.Show();
                 LoginForm loginform = new LoginForm();
                 loginform.Close();
             }
