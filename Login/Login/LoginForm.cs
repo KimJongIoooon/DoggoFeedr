@@ -17,8 +17,6 @@ namespace Login
         MySqlDataAdapter adap;
         MySqlDataAdapter idSelect;
 
-        // test
-
         public static int accountId;
 
         public LoginForm()
@@ -30,13 +28,15 @@ namespace Login
         private void loginButton_Click(object sender, EventArgs e)
         {
             var Account = new Account();
-            Account.Login(userName.Text, passWord.Text);
-            Account.getId(userName.Text, passWord.Text);
+            if (Account.Login(userName.Text, passWord.Text))
+            {
+                this.Hide();
+                Account.getId(userName.Text, passWord.Text);
+            }
         }
 
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            //create
             Create create = new Create();
             create.Show();
             this.Close();

@@ -1,4 +1,4 @@
-﻿namespace GUIDoggoFeedr
+﻿namespace Login
 {
     partial class Dashboard
     {
@@ -45,7 +45,7 @@
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.button1 = new System.Windows.Forms.Button();
+            this.logOut = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
@@ -57,6 +57,7 @@
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.userName = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
+            this.testButton = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -206,15 +207,15 @@
             this.timer1.Interval = 1000;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
-            // button1
+            // logOut
             // 
-            this.button1.Location = new System.Drawing.Point(666, 302);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 51);
-            this.button1.TabIndex = 6;
-            this.button1.Text = "Uitloggen";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.logOut.Location = new System.Drawing.Point(52, 302);
+            this.logOut.Name = "logOut";
+            this.logOut.Size = new System.Drawing.Size(75, 51);
+            this.logOut.TabIndex = 6;
+            this.logOut.Text = "Uitloggen";
+            this.logOut.UseVisualStyleBackColor = true;
+            this.logOut.Click += new System.EventHandler(this.logOut_Click);
             // 
             // button2
             // 
@@ -318,16 +319,27 @@
             this.label10.TabIndex = 0;
             this.label10.Text = "Gebruiker";
             // 
+            // testButton
+            // 
+            this.testButton.Location = new System.Drawing.Point(651, 302);
+            this.testButton.Name = "testButton";
+            this.testButton.Size = new System.Drawing.Size(75, 51);
+            this.testButton.TabIndex = 10;
+            this.testButton.Text = "Test progressBar";
+            this.testButton.UseVisualStyleBackColor = true;
+            this.testButton.Click += new System.EventHandler(this.testButton_Click);
+            // 
             // Dashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.testButton);
             this.Controls.Add(this.groupBox5);
             this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.logOut);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
@@ -366,7 +378,7 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Timer timer1;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button logOut;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.GroupBox groupBox4;
@@ -378,5 +390,6 @@
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.ProgressBar progressBar;
         private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Button testButton;
     }
 }

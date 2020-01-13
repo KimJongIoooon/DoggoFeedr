@@ -5,7 +5,6 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data;
 using System.Windows.Forms;
-using GUIDoggoFeedr;
 using MySql.Data.MySqlClient;
 
 namespace Login
@@ -25,7 +24,7 @@ namespace Login
         //List<Feeder> feeders = new List<Feeder>();
         //List<Food> foods = new List<Food>();
         
-        public void Login(string username, string password)
+        public bool Login(string username, string password)
         {
             login = new MySqlDataAdapter("SELECT COUNT(*) FROM Account WHERE Name ='" + username + "' AND Password ='" + password + "'", con);
             DataTable logindata = new DataTable();
@@ -41,20 +40,25 @@ namespace Login
 
             if (logindata.Rows[0][0].ToString() == "1")
             {
+                var loginform = new LoginForm();
+                loginform.Hide();
                 var dashboard = new Dashboard();
                 dashboard.Show();
-                LoginForm loginform = new LoginForm();
-                loginform.Close();
+                return true;
             }
             else
             {
                 MessageBox.Show("Gebruikersnaam of wachtwoord onjuist");
+                return false;
             }
         }
 
         public void Logout()
         {
-
+            var dashboard = new Dashboard();
+            dashboard.Close();
+            var loginform = new LoginForm();
+            loginform.Show();
         }
 
         public int getId(string username, string password)

@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
 
-namespace GUIDoggoFeedr
+namespace Login
 {
     public partial class Dashboard : Form
     {
@@ -82,7 +82,7 @@ namespace GUIDoggoFeedr
             label7.Text = DateTime.Now.ToString();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void testButton_Click(object sender, EventArgs e)
         {
             for (int i = 0; i <= progressBar.Maximum; i++)
             {
@@ -90,6 +90,12 @@ namespace GUIDoggoFeedr
                 label11.Refresh();
                 label11.Text = progressBar.Value.ToString() + " %";
             }
+        }
+
+        private void logOut_Click(object sender, EventArgs e)
+        {
+            var Account = new Account();
+            Account.Logout();
         }
     }
 }

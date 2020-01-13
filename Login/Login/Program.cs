@@ -12,12 +12,14 @@ namespace Login
         /// The main entry point for the application.
         /// </summary>
         [STAThread]
-        static void Main()
+        static void Main()  
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            var form1 = new LoginForm();
-            form1.Show();
+            var dashboard = new Dashboard();
+            var main = new Main();
+            var loginform = new LoginForm();
+            loginform.Show();
             Application.Run();
         }
     }

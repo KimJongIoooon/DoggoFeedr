@@ -31,9 +31,9 @@ namespace Login
 
         private void logOut_Click(object sender, EventArgs e)
         {
-            LoginForm login = new LoginForm();
+            LoginForm loginform = new LoginForm();
             this.Hide();
-            login.Show();
+            loginform.Show();
         }
 
         private void Main_Load(object sender, EventArgs e)
