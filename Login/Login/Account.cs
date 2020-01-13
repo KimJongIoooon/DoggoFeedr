@@ -27,7 +27,7 @@ namespace Login
         public bool Login(string username, string password)
         {
             var Database = new Database();
-            if (Database.login(username, password))
+            if (Database.Login(username, password))
             {
                 var loginform = new LoginForm();
                 loginform.Hide();
@@ -47,28 +47,10 @@ namespace Login
             int? Id = null;
         }
 
-        public void getId(string username, string password)
+        public void GetId(string username, string password)
         {
-            idSelect = new MySqlDataAdapter("SELECT Id FROM Account WHERE Name ='" + username + "' AND Password ='" + password + "'", con);
-            DataTable iddata = new DataTable();
-
-            try
-            {
-                idSelect.Fill(iddata);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-
-            if (iddata.Rows.Count == 0)
-            {
-                MessageBox.Show("Geen ID meegegeven");
-            }
-            else
-            {
-                Id = Convert.ToInt32(iddata.Rows[0][0]);
-            }
+            var Database = new Database();
+            Id = Database.GetId(username, password);
         }
 
         public void getName(string name)

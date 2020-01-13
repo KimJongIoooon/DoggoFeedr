@@ -15,7 +15,7 @@ namespace Login
         private MySqlDataAdapter loginadap;
         private MySqlDataAdapter idSelect;
 
-        public bool login(string username, string password)
+        public bool Login(string username, string password)
         {
 
             loginadap = new MySqlDataAdapter(
@@ -29,6 +29,21 @@ namespace Login
             else
             {
                 return false;
+            }
+        }
+
+        public int GetId(string username, string password)
+        {
+            idSelect = new MySqlDataAdapter("SELECT Id FROM Account WHERE Name ='" + username + "' AND Password ='" + password + "'", con);
+            DataTable iddata = new DataTable();
+            idSelect.Fill(iddata);
+            if (iddata.Rows.Count == 0)
+            {
+                return -1;
+            }
+            else
+            {
+                return Convert.ToInt32(iddata.Rows[0][0]);
             }
         }
     }
