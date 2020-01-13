@@ -31,8 +31,7 @@ namespace Login
             if (Account.Login(userName.Text, passWord.Text))
             {
                 this.Hide();
-                Account.GetId(userName.Text, passWord.Text);
-                Account.getName(userName.Text);
+                
             }
         }
 

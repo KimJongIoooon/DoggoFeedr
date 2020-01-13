@@ -18,11 +18,12 @@ namespace Login
 
         public bool Login(string username, string password)
         {
-
+            con.Open();
             loginAdapter = new MySqlDataAdapter(
                 "SELECT COUNT(*) FROM Account WHERE Name ='" + username + "' AND Password ='" + password + "'", con);
             DataTable logindata = new DataTable();
             loginAdapter.Fill(logindata);
+            con.Close();
             if (logindata.Rows[0][0].ToString() == "1")
             {
                 return true;
@@ -31,13 +32,16 @@ namespace Login
             {
                 return false;
             }
+            
         }
 
         public int GetId(string username, string password)
         {
+            con.Open();
             idSelect = new MySqlDataAdapter("SELECT Id FROM Account WHERE Name ='" + username + "' AND Password ='" + password + "'", con);
             DataTable iddata = new DataTable();
             idSelect.Fill(iddata);
+            con.Close();
             if (iddata.Rows.Count == 0)
             {
                 return -1;
@@ -81,6 +85,18 @@ namespace Login
                 con.Close();
                 MessageBox.Show("Gebruiker succesvol aangemaakt!");
             }
+        }
+
+        public DataTable getAccountInfo(int id)
+        {
+            con.Open();
+            MySqlDataAdapter selectAdapter = new MySqlDataAdapter($"SELECT * FROM Account WHERE ID = {id}", con);
+            DataTable dataTable = new DataTable();
+            selectAdapter.Fill(dataTable);
+            con.Close();
+            
+            return dataTable;
+            
         }
 
     }

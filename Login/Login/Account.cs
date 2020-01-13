@@ -23,12 +23,17 @@ namespace Login
         List<Dog> Dogs = new List<Dog>();
         //List<Feeder> feeders = new List<Feeder>();
         //List<Food> foods = new List<Food>();
+        public Account()
+        {
+
+        }
         
         public bool Login(string username, string password)
         {
             var Database = new Database();
             if (Database.Login(username, password))
             {
+                getAccountData(username, password);
                 var loginform = new LoginForm();
                 loginform.Hide();
                 var dashboard = new Dashboard(this);
@@ -42,20 +47,23 @@ namespace Login
             }
         }
 
+        public void getAccountData(string username, string password)
+        {
+            
+            var database = new Database();
+            int id = database.GetId(username, password);
+            DataTable data = database.getAccountInfo(id);
+            Id = (int)data.Rows[0][0];
+            Name = Convert.ToString(data.Rows[0][2]);
+
+        }
+
         public void Logout()
         {
             int? Id = null;
         }
 
-        public void GetId(string username, string password)
-        {
-            var Database = new Database();
-            Id = Database.GetId(username, password);
-        }
 
-        public void getName(string name)
-        {
-            Name = name;
-        }
+
     }
 }
