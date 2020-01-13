@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -17,6 +17,8 @@ namespace Login
         MySqlDataAdapter adap;
         MySqlDataAdapter idSelect;
 
+        // test
+
         public static int accountId;
 
         public LoginForm()
@@ -34,6 +36,7 @@ namespace Login
 
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
+            //create
             Create create = new Create();
             create.Show();
             this.Close();
