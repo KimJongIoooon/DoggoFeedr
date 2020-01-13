@@ -20,7 +20,7 @@ namespace Login
         string Password;
         string Email;
         bool isLoggedIn;
-        //List<Dog> dogs = new List<Dog>();
+        List<Dog> Dogs = new List<Dog>();
         //List<Feeder> feeders = new List<Feeder>();
         //List<Food> foods = new List<Food>();
         
@@ -57,21 +57,5 @@ namespace Login
         {
             Name = name;
         }
-
-        public void changeName(string name)
-        {
-            // this.Name = name;
-        }
-
-        public void changePassword(string password)
-        {
-            this.Password = password;
-        }
-
-        public void changeEmail(string email)
-        {
-            this.Email = email;
-        }
-
     }
 }

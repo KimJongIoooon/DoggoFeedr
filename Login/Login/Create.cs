@@ -23,52 +23,10 @@ namespace Login
             passWord.PasswordChar = '*';
         }
 
-        public bool usernameCheck()
-        {
-            MySqlCommand check = new MySqlCommand("SELECT COUNT(*) FROM Account WHERE Name = @username", con);
-            check.Parameters.AddWithValue("@username", this.userName.Text);
-            con.Open();
-            int TotalRows = 0;
-            TotalRows = Convert.ToInt32(check.ExecuteScalar());
-            con.Close();
-            if (TotalRows > 0)
-            {
-                MessageBox.Show("Gebruikersnaam " + userName.Text + " al in gebruik");
-                return true;
-            }
-            else 
-            {
-                return false;
-            }
-        }
-
-        private void addAccount()
-        {
-            try
-            {
-                if (!usernameCheck()) 
-                {
-                    con.Open();
-                    insertCommand = new MySqlCommand("INSERT INTO Account (Name, Password)" + "VALUES (@name, @pwd)", con);
-
-                    insertCommand.Parameters.AddWithValue("@name", userName.Text);
-                    insertCommand.Parameters.AddWithValue("@pwd", passWord.Text);
-
-                    insertCommand.ExecuteNonQuery();
-                    con.Close();
-                    MessageBox.Show("Gebruiker succesvol aangemaakt!");
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-
-        }
-
         private void makeAccount_Click(object sender, EventArgs e)
         {
-            addAccount();
+            var Database = new Database();
+            Database.addAccount(userName.Text, passWord.Text);
         }
 
         private void Create_FormClosed(object sender, FormClosedEventArgs e)

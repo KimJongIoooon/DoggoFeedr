@@ -28,6 +28,7 @@ namespace Login
             dogData();
             foodData();
             label11.Text = progressBar.Value.ToString() + " %";
+            userName.Text = Account.Name;
         }
 
         public void showPercentage()

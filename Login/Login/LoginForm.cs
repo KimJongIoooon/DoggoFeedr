@@ -36,16 +36,23 @@ namespace Login
             }
         }
 
+
+
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             Create create = new Create();
             create.Show();
-            this.Close();
+            this.Hide();
         }
 
         private void LoginForm_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void LoginForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit();
         }
     }
 }
