@@ -29,34 +29,34 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.dogName = new System.Windows.Forms.TextBox();
-            this.bodyWeight = new System.Windows.Forms.TextBox();
+            this.tbxDogName = new System.Windows.Forms.TextBox();
+            this.tbxBodyWeight = new System.Windows.Forms.TextBox();
             this.dataBase = new System.Windows.Forms.DataGridView();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.addButton = new System.Windows.Forms.Button();
-            this.stageOfLife = new System.Windows.Forms.ComboBox();
+            this.drdStageOfLife = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.dateTimePicker = new System.Windows.Forms.DateTimePicker();
+            this.dtpBirthDate = new System.Windows.Forms.DateTimePicker();
             ((System.ComponentModel.ISupportInitialize)(this.dataBase)).BeginInit();
             this.SuspendLayout();
             // 
-            // dogName
+            // tbxDogName
             // 
-            this.dogName.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dogName.Location = new System.Drawing.Point(575, 59);
-            this.dogName.Name = "dogName";
-            this.dogName.Size = new System.Drawing.Size(188, 38);
-            this.dogName.TabIndex = 0;
+            this.tbxDogName.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbxDogName.Location = new System.Drawing.Point(575, 59);
+            this.tbxDogName.Name = "tbxDogName";
+            this.tbxDogName.Size = new System.Drawing.Size(188, 38);
+            this.tbxDogName.TabIndex = 0;
             // 
-            // bodyWeight
+            // tbxBodyWeight
             // 
-            this.bodyWeight.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bodyWeight.Location = new System.Drawing.Point(798, 59);
-            this.bodyWeight.Name = "bodyWeight";
-            this.bodyWeight.Size = new System.Drawing.Size(188, 38);
-            this.bodyWeight.TabIndex = 1;
+            this.tbxBodyWeight.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbxBodyWeight.Location = new System.Drawing.Point(798, 59);
+            this.tbxBodyWeight.Name = "tbxBodyWeight";
+            this.tbxBodyWeight.Size = new System.Drawing.Size(188, 38);
+            this.tbxBodyWeight.TabIndex = 1;
             // 
             // dataBase
             // 
@@ -97,14 +97,14 @@
             this.addButton.UseVisualStyleBackColor = true;
             this.addButton.Click += new System.EventHandler(this.addButton_Click);
             // 
-            // stageOfLife
+            // drdStageOfLife
             // 
-            this.stageOfLife.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.stageOfLife.FormattingEnabled = true;
-            this.stageOfLife.Location = new System.Drawing.Point(575, 185);
-            this.stageOfLife.Name = "stageOfLife";
-            this.stageOfLife.Size = new System.Drawing.Size(188, 39);
-            this.stageOfLife.TabIndex = 8;
+            this.drdStageOfLife.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.drdStageOfLife.FormattingEnabled = true;
+            this.drdStageOfLife.Location = new System.Drawing.Point(575, 185);
+            this.drdStageOfLife.Name = "drdStageOfLife";
+            this.drdStageOfLife.Size = new System.Drawing.Size(188, 39);
+            this.drdStageOfLife.TabIndex = 8;
             // 
             // label3
             // 
@@ -126,29 +126,29 @@
             this.label4.TabIndex = 10;
             this.label4.Text = "Geboortedatum";
             // 
-            // dateTimePicker
+            // dtpBirthDate
             // 
-            this.dateTimePicker.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateTimePicker.Location = new System.Drawing.Point(571, 325);
-            this.dateTimePicker.Name = "dateTimePicker";
-            this.dateTimePicker.Size = new System.Drawing.Size(415, 38);
-            this.dateTimePicker.TabIndex = 11;
+            this.dtpBirthDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtpBirthDate.Location = new System.Drawing.Point(571, 325);
+            this.dtpBirthDate.Name = "dtpBirthDate";
+            this.dtpBirthDate.Size = new System.Drawing.Size(415, 38);
+            this.dtpBirthDate.TabIndex = 11;
             // 
             // DogSettings
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1039, 607);
-            this.Controls.Add(this.dateTimePicker);
+            this.Controls.Add(this.dtpBirthDate);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.stageOfLife);
+            this.Controls.Add(this.drdStageOfLife);
             this.Controls.Add(this.addButton);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.dataBase);
-            this.Controls.Add(this.bodyWeight);
-            this.Controls.Add(this.dogName);
+            this.Controls.Add(this.tbxBodyWeight);
+            this.Controls.Add(this.tbxDogName);
             this.Name = "DogSettings";
             this.Text = " HondenInstellingen";
             this.Load += new System.EventHandler(this.Form1_Load);
@@ -160,16 +160,16 @@
 
         #endregion
 
-        private System.Windows.Forms.TextBox dogName;
-        private System.Windows.Forms.TextBox bodyWeight;
+        private System.Windows.Forms.TextBox tbxDogName;
+        private System.Windows.Forms.TextBox tbxBodyWeight;
         private System.Windows.Forms.DataGridView dataBase;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button addButton;
-        private System.Windows.Forms.ComboBox stageOfLife;
+        private System.Windows.Forms.ComboBox drdStageOfLife;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.DateTimePicker dateTimePicker;
+        private System.Windows.Forms.DateTimePicker dtpBirthDate;
     }
 }
 

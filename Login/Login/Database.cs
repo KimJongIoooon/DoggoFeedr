@@ -168,6 +168,16 @@ namespace Login
             con.Close();
             return account;
         }
+
+        public void insertFeedrId(int accountid, int feedrid)
+        {
+            string stringInsert = $"UPDATE Account SET FeedrId = {feedrid} WHERE Id {accountid}";
+            con.Open(); 
+            MySqlCommand insert = new MySqlCommand();
+            insert.CommandText = stringInsert;
+            insert.ExecuteNonQuery();
+            con.Close();
+        }
         
         public List<Dog> accountDogs(int id)
         {

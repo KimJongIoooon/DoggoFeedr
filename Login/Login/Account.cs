@@ -20,9 +20,9 @@ namespace Login
         string Password;
         string Email;
         bool isLoggedIn;
-        List<Dog> Dogs = new List<Dog>();
+        public List<Dog> Dogs = new List<Dog>();
         public List<Feedr> Feedrs = new List<Feedr>();
-        List<Food> Foods = new List<Food>();
+        public List<Food> Foods = new List<Food>();
         public Account()
         {
             
