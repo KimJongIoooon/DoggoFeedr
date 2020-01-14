@@ -99,10 +99,10 @@ namespace Login
             
         }
 
-        public DataTable getDogDate(int id)
+        public DataTable getDogData(int id)
         {
             con.Open();
-            MySqlDataAdapter adapt = new MySqlDataAdapter($"SELECT * FROM Dog WHERE Account.Id = {id}", con;);
+            MySqlDataAdapter adapt = new MySqlDataAdapter($"SELECT * FROM Dog WHERE Account_Id = {id}", con);
             DataTable dataTable = new DataTable();
             adapt.Fill(dataTable);
             con.Close();
@@ -110,9 +110,41 @@ namespace Login
             return dataTable;
         }
 
-        public void dogInsert()
+        public DataTable getFoodData(int id)
         {
+            con.Open();
+            MySqlDataAdapter adapt = new MySqlDataAdapter($"SELECT * FROM Food WHERE Account_Id = {id}", con);
+            DataTable dataTable = new DataTable();
+            adapt.Fill(dataTable);
+            con.Close();
 
+            return dataTable;
+        }
+        
+        public DataTable getFeedrData(int id)
+        {
+            con.Open();
+            MySqlDataAdapter adapt = new MySqlDataAdapter($"SELECT * FROM Feedr WHERE Account_Id = {id}", con);
+            DataTable dataTable = new DataTable();
+            adapt.Fill(dataTable);
+            con.Close();
+
+            return dataTable;
+        }
+
+        public void dogInsert(string name, int weight, int stage, DateTime birthdate)
+        {
+            string sqlInsert = "INSERT INTO Dog (Name, Weight, StageOfLife, DateOfBirth)" +
+                               "VALUES ('" + name + "' , '" + weight + "', '" + stage + "', '" + birthdate + "')";
+            con.Open();
+            MySqlCommand InsertCommand = new MySqlCommand(sqlInsert, con);
+            MySqlDataReader Insert;
+            Insert = InsertCommand.ExecuteReader();
+            while (Insert.Read())
+            {
+
+            }
+            con.Close();
         }
 
     }
