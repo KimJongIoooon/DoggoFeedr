@@ -100,7 +100,6 @@ namespace Login
         {
             getData();
             var Dog = new Dog(Name, dateTimePicker.Value, Stage, Weight);
-
         }
     }
 }
