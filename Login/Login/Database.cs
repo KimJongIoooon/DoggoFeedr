@@ -53,7 +53,7 @@ namespace Login
             }
         }
 
-        public bool usernameCheck(string username)
+        public bool UsernameCheck(string username)
         {
             MySqlCommand check = new MySqlCommand("SELECT COUNT(*) FROM Account WHERE Name = @username", con);
             check.Parameters.AddWithValue("@username", username);
@@ -72,9 +72,9 @@ namespace Login
             }
         }
 
-        public void addAccount(string username, string password)
+        public void AddAccount(string username, string password)
         {
-            if (!usernameCheck(username))
+            if (!UsernameCheck(username))
             {
                 con.Open();
                 insertAdapter = new MySqlCommand("INSERT INTO Account (Name, Password)" + "VALUES (@name, @pwd)", con);
@@ -88,7 +88,7 @@ namespace Login
             }
         }
 
-        public DataTable getAccountInfo(int id)
+        public DataTable GetAccountInfo(int id)
         {
             con.Open();
             MySqlDataAdapter selectAdapter = new MySqlDataAdapter($"SELECT * FROM Account WHERE ID = {id}", con);
@@ -99,7 +99,7 @@ namespace Login
             return dataTable;
             
         }
-        public Account getAcountInfo(int id)
+        public Account GetAcountInfo(int id)
         {
             //get account table
             string Query = $"SELECT * FROM Account WHERE ID = {id}";
@@ -164,18 +164,19 @@ namespace Login
                 bool active = myReader.GetBoolean("active");
                 
             }
+
             myReader.Close();
             con.Close();
             return account;
         }
         
-        public List<Dog> accountDogs(int id)
+        public List<Dog> AccountDogs(int id)
         {
            List<Dog> dogs = new List<Dog>();
            return dogs;
         }
 
-        public DataTable getDogData(int id)
+        public DataTable GetDogData(int id)
         {
             con.Open();
             MySqlDataAdapter adapt = new MySqlDataAdapter($"SELECT * FROM Dog WHERE Account_Id = {id}", con);
@@ -186,7 +187,7 @@ namespace Login
             return dataTable;
         }
 
-        public DataTable getFoodData(int id)
+        public DataTable GetFoodData(int id)
         {
             con.Open();
             MySqlDataAdapter adapt = new MySqlDataAdapter($"SELECT * FROM Food WHERE Account_Id = {id}", con);
@@ -197,7 +198,7 @@ namespace Login
             return dataTable;
         }
         
-        public DataTable getFeedrData(int id)
+        public DataTable GetFeedrData(int id)
         {
             con.Open();
             MySqlDataAdapter adapt = new MySqlDataAdapter($"SELECT * FROM Feedr WHERE Account_Id = {id}", con);
@@ -208,7 +209,7 @@ namespace Login
             return dataTable;
         }
 
-        public void dogInsert(string name, int weight, int stage, DateTime birthdate)
+        public void DogInsert(string name, int weight, int stage, DateTime birthdate)
         {
             string sqlInsert = "INSERT INTO Dog (Name, Weight, StageOfLife, DateOfBirth)" +
                                "VALUES ('" + name + "' , '" + weight + "', '" + stage + "', '" + birthdate + "')";

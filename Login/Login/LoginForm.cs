@@ -32,7 +32,7 @@ namespace Login
             if (db.Login(tbxUsername.Text, tbxPassword.Text))
             {
                 int accId = db.GetId(tbxUsername.Text, tbxPassword.Text);
-                Account account = db.getAcountInfo(accId);
+                Account account = db.GetAcountInfo(accId);
                 if(account.Feedrs.Count > 0)
                 {
                     Dashboard dashboard = new Dashboard(account);

@@ -78,7 +78,7 @@ namespace Login
             
             var database = new Database();
             int id = database.GetId(username, password);
-            DataTable data = database.getAccountInfo(id);
+            DataTable data = database.GetAccountInfo(id);
             Id = (int)data.Rows[0][0];
             Name = Convert.ToString(data.Rows[0][2]);
 

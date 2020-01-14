@@ -16,8 +16,12 @@ namespace Login
         bool isActive;
         public Feedr(int id, int foodlevel, List<DateTime> mealtimes, Dog dog, Food food, bool isActive)
         {
-            this.id = id; 
-            
+            this.id = id;
+            this.foodLevel = foodlevel;
+            this.mealtimes = mealtimes;
+            this.dog = dog;
+            this.food = food;
+            this.isActive = isActive;
 
 
         }

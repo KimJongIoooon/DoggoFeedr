@@ -15,12 +15,12 @@ namespace Login
             get { return _id; }
         }
 
-        public void check()
+        public void Check()
         {
 
         }
 
-        public void getId()
+        public void GetId()
         {
 
         }

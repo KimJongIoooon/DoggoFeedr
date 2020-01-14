@@ -26,7 +26,7 @@ namespace Login
         private void makeAccount_Click(object sender, EventArgs e)
         {
             var Database = new Database();
-            Database.addAccount(userName.Text, passWord.Text);
+            Database.AddAccount(userName.Text, passWord.Text);
         }
 
         private void Create_FormClosed(object sender, FormClosedEventArgs e)
