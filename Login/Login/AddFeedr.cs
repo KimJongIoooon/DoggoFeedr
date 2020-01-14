@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Login
 {
-    public partial class FeedrSettings : Form
+    public partial class AddFeedr : Form
     {
-        public FeedrSettings()
+        public AddFeedr()
         {
             InitializeComponent();
         }

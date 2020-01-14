@@ -114,7 +114,18 @@ namespace Login
             string password = myReader.GetString("Password"); 
             Account account = new Account(name, password, email);
             //get dogs info
-            string Query = $"SELECT * FROM Dog WHERE account id = {id}";
+            string DogQuery = $"SELECT * FROM Dog WHERE account id = {id}";
+            mySqlCommand = new MySqlCommand(DogQuery, con);
+            myReader = mySqlCommand.ExecuteReader();
+
+            while (myReader.Read())
+            {
+                string dogName = myReader.GetString("Name");
+                int Weight = myReader.GetInt32("Weight");
+                int StageOfLife = myReader.GetInt32("StageOfLife");
+                int
+            }
+
             con.Close();
             return account;
         }

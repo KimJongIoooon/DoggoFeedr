@@ -1,6 +1,6 @@
 ﻿namespace Login
 {
-    partial class FeedrSettings
+    partial class AddFeedr
     {
         /// <summary>
         /// Required designer variable.
