@@ -16,6 +16,11 @@ namespace Login
         {
             InitializeComponent();
         }
-        
+
+        private void btnDoorgaan_Click(object sender, EventArgs e)
+        {
+            var Database = new Database();
+            Database.insertFeedrId(1, Convert.ToInt32(tbxFeederId.Text));
+        }
     }
 }

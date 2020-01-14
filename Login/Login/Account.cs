@@ -20,9 +20,9 @@ namespace Login
         string Password;
         string Email;
         bool isLoggedIn;
-        List<Dog> Dogs = new List<Dog>();
+        public List<Dog> Dogs = new List<Dog>();
         public List<Feedr> Feedrs = new List<Feedr>();
-        List<Food> Foods = new List<Food>();
+        public List<Food> Foods = new List<Food>();
         public Account()
         {
             
@@ -33,13 +33,6 @@ namespace Login
 
         }
 
-        public void addDogs(List<Dog> dogs)
-        {
-            foreach(Dog dog in Dogs)
-            {
-                Dogs.Add(dog);
-            }
-        }
         public void addDog(Dog dog)
         {
             Dogs.Add(dog);

@@ -38,6 +38,9 @@ namespace Login
                     Dashboard dashboard = new Dashboard(account);
                 } else
                 {
+                    this.Hide();
+                    var add = new AddFeedr();
+                    add.Show();
                     MessageBox.Show("Error: voeg een feeder toe");
                 }
 

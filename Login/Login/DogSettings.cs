@@ -65,33 +65,33 @@ namespace Login
         {
             foreach (StageOfLife members in Enum.GetValues(typeof(StageOfLife)))
             {
-                stageOfLife.Items.Add(members);
+                drdStageOfLife.Items.Add(members);
             }
         }
 
         public void fillFields()
         {
-            Name = dogName.Text;
-            Weight = Convert.ToInt32(bodyWeight.Text);
-            Stage = stageOfLife.SelectedIndex;
-            var Year = dateTimePicker.Value.Year;
-            var Month = dateTimePicker.Value.Month;
-            var Day = dateTimePicker.Value.Day;
+            Name = tbxDogName.Text;
+            Weight = Convert.ToInt32(tbxBodyWeight.Text);
+            Stage = drdStageOfLife.SelectedIndex;
+            var Year = dtpBirthDate.Value.Year;
+            var Month = dtpBirthDate.Value.Month;
+            var Day = dtpBirthDate.Value.Day;
             BirthDate = Convert.ToString(Year + "-" + Month + "-" + Day);
         }
 
         public void clearFields()
         {
-            dogName.Text = "";
-            bodyWeight.Text = "";
-            stageOfLife.Text = "";
-            dateTimePicker.Text = "";
+            tbxDogName.Text = "";
+            tbxBodyWeight.Text = "";
+            drdStageOfLife.Text = "";
+            dtpBirthDate.Text = "";
         }
         
         private void addButton_Click(object sender, EventArgs e)
         {
             getData();
-            var Dog = new Dog(Name, dateTimePicker.Value, Stage, Weight);
+            var Dog = new Dog(Name, dtpBirthDate.Value, Stage, Weight);
         }
     }
 }
