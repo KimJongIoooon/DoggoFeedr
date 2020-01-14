@@ -100,22 +100,21 @@ namespace Login
         }
         public Account getAcountInfo(int id)
         {
+            //get account table
             string Query = $"SELECT * FROM Account WHERE ID = {id}";
-
             MySqlCommand mySqlCommand = new MySqlCommand(Query, con);
             con.Open();
             MySqlDataReader myReader;
             myReader = mySqlCommand.ExecuteReader();
 
             int Account_id = myReader.GetInt32("Id");
-            int Feeder_id = myReader.GetInt32("FeederId" +
-                "");
+            int Feeder_id = myReader.GetInt32("FeederId" +"");
             string name = myReader.GetString("Name");
-
             string email = myReader.GetString("Email");
             string password = myReader.GetString("Password"); 
             Account account = new Account(name, password, email);
-
+            //get dogs info
+            string Query = $"SELECT * FROM Dog WHERE account id = {id}";
             con.Close();
             return account;
         }
