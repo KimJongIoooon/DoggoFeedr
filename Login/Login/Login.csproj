@@ -63,11 +63,11 @@
       <DependentUpon>DogSettings.cs</DependentUpon>
     </Compile>
     <Compile Include="Feedr.cs" />
-    <Compile Include="FeedrSettings.cs">
+    <Compile Include="AddFeedr.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FeedrSettings.Designer.cs">
-      <DependentUpon>FeedrSettings.cs</DependentUpon>
+    <Compile Include="AddFeedr.Designer.cs">
+      <DependentUpon>AddFeedr.cs</DependentUpon>
     </Compile>
     <Compile Include="Food.cs" />
     <Compile Include="LogEntry.cs" />
@@ -100,8 +100,8 @@
     <EmbeddedResource Include="DogSettings.resx">
       <DependentUpon>DogSettings.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FeedrSettings.resx">
-      <DependentUpon>FeedrSettings.cs</DependentUpon>
+    <EmbeddedResource Include="AddFeedr.resx">
+      <DependentUpon>AddFeedr.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>
