@@ -107,16 +107,18 @@ namespace Login
             con.Open();
             MySqlDataReader myReader;
             myReader = mySqlCommand.ExecuteReader();
-
+            myReader.Read();
             int Account_id = myReader.GetInt32("Id");
-            int Feeder_id = myReader.GetInt32("FeederId" +"");
+            int feedrId = myReader.GetInt32("FeedrId");
             string name = myReader.GetString("Name");
             string email = myReader.GetString("Email");
             string password = myReader.GetString("Password"); 
             Account account = new Account(name, password, email);
+            myReader.Close();
             //get dogs info
-            string DogQuery = $"SELECT * FROM Dog WHERE account id = {id}";
+            string DogQuery = $"SELECT * FROM Dog WHERE accountId = {id}";
             mySqlCommand = new MySqlCommand(DogQuery, con);
+            
             myReader = mySqlCommand.ExecuteReader();
 
             while (myReader.Read())
@@ -124,11 +126,45 @@ namespace Login
                 string dogName = myReader.GetString("Name");
                 int weight = myReader.GetInt32("Weight");
                 int stageOfLife = myReader.GetInt32("StageOfLife");
-                DateTime dateOfBirth = Convert.ToDateTime(myReader.GetString("DateOfBirth"));
-                
+                DateTime dateOfBirth = myReader.GetDateTime("DateOfBirth");
+
+
+                account.addDog(new Dog(dogName, dateOfBirth, stageOfLife, weight));
                 
             }
+            myReader.Close();
 
+            //get foods
+            string foodQuery = $"SELECT * FROM Food Where accountId = {id}";
+            mySqlCommand = new MySqlCommand(foodQuery, con);
+            
+            myReader = mySqlCommand.ExecuteReader();
+
+            while (myReader.Read())
+            {
+                int foodid = myReader.GetInt32("Id");
+                string foodName = myReader.GetString("Name");
+                int energy = myReader.GetInt32("Energy");
+                account.addFood(new Food(foodid, foodName, energy));
+                
+            }
+            myReader.Close();
+            //get feedrs 
+
+            string feedrQuery = $"SELECT * FROM Feedr Where accountId = {id}";
+            mySqlCommand = new MySqlCommand(feedrQuery, con);
+            myReader = mySqlCommand.ExecuteReader();
+
+            while(myReader.Read()){
+                int dogId = myReader.GetInt32("DogId");
+                int foodId = myReader.GetInt32("FoodId");
+                int foodPerMeal = myReader.GetInt32("FoodPerMeal");
+                int puzzle = myReader.GetInt32("Puzzle");
+                int level = myReader.GetInt32("level");
+                bool active = myReader.GetBoolean("active");
+                
+            }
+            myReader.Close();
             con.Close();
             return account;
         }
