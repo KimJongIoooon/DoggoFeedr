@@ -21,7 +21,7 @@ namespace Login
         string Email;
         bool isLoggedIn;
         List<Dog> Dogs = new List<Dog>();
-        List<Feedr> Feedrs = new List<Feedr>();
+        public List<Feedr> Feedrs = new List<Feedr>();
         List<Food> Foods = new List<Food>();
         public Account()
         {
