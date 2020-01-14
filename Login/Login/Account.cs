@@ -62,8 +62,5 @@ namespace Login
         {
             int? Id = null;
         }
-
-
-
     }
 }

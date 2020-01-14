@@ -104,5 +104,11 @@ namespace Login
             loginform.Show();
         }
 
+        private void dogSettings_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            var dogsettings = new DogSettings();
+            dogsettings.Show();
+        }
     }
 }

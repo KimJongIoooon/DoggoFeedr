@@ -46,7 +46,7 @@
             this.label6 = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.logOut = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.dogSettings = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.label11 = new System.Windows.Forms.Label();
@@ -217,14 +217,15 @@
             this.logOut.UseVisualStyleBackColor = true;
             this.logOut.Click += new System.EventHandler(this.logOut_Click);
             // 
-            // button2
+            // dogSettings
             // 
-            this.button2.Location = new System.Drawing.Point(252, 302);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 51);
-            this.button2.TabIndex = 7;
-            this.button2.Text = "Hond Instellingen";
-            this.button2.UseVisualStyleBackColor = true;
+            this.dogSettings.Location = new System.Drawing.Point(252, 302);
+            this.dogSettings.Name = "dogSettings";
+            this.dogSettings.Size = new System.Drawing.Size(75, 51);
+            this.dogSettings.TabIndex = 7;
+            this.dogSettings.Text = "Hond Instellingen";
+            this.dogSettings.UseVisualStyleBackColor = true;
+            this.dogSettings.Click += new System.EventHandler(this.dogSettings_Click);
             // 
             // button3
             // 
@@ -338,7 +339,7 @@
             this.Controls.Add(this.groupBox5);
             this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
+            this.Controls.Add(this.dogSettings);
             this.Controls.Add(this.logOut);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
@@ -379,7 +380,7 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.Button logOut;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button dogSettings;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.GroupBox groupBox4;
         private System.Windows.Forms.Label label8;

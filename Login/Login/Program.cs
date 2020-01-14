@@ -18,6 +18,7 @@ namespace Login
             Application.SetCompatibleTextRenderingDefault(false);
             var dashboard = new Dashboard(new Account());
             var main = new Main();
+            var dogsettings = new DogSettings();
             var loginform = new LoginForm();
             loginform.Show();
             Application.Run();

@@ -99,5 +99,21 @@ namespace Login
             
         }
 
+        public DataTable getDogDate(int id)
+        {
+            con.Open();
+            MySqlDataAdapter adapt = new MySqlDataAdapter($"SELECT * FROM Dog WHERE Account.Id = {id}", con;);
+            DataTable dataTable = new DataTable();
+            adapt.Fill(dataTable);
+            con.Close();
+
+            return dataTable;
+        }
+
+        public void dogInsert()
+        {
+
+        }
+
     }
 }
