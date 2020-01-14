@@ -8,10 +8,14 @@ namespace Login
 {
     public class Food
     {
-        int id;
+        public int Id { get; private set; }
         string name;
         int energy;//energy per volume in Colories per m/2
 
+        public Food()
+        {
+
+        }
         public Food(int id, string name, int energy)
         {
 

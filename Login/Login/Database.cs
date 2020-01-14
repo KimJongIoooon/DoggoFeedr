@@ -88,16 +88,11 @@ namespace Login
             }
         }
 
-        public DataTable GetAccountInfo(int id)
+        MySqlDataReader ExecuteQuery(string Query)
         {
-            con.Open();
-            MySqlDataAdapter selectAdapter = new MySqlDataAdapter($"SELECT * FROM Account WHERE ID = {id}", con);
-            DataTable dataTable = new DataTable();
-            selectAdapter.Fill(dataTable);
-            con.Close();
-            
-            return dataTable;
-            
+            MySqlCommand mySqlCommand = new MySqlCommand(Query, con);
+            MySqlDataReader dataReader = mySqlCommand.ExecuteReader();  
+            return dataReader;
         }
         public Account GetAcountInfo(int id)
         {
@@ -105,15 +100,26 @@ namespace Login
             string Query = $"SELECT * FROM Account WHERE ID = {id}";
             MySqlCommand mySqlCommand = new MySqlCommand(Query, con);
             con.Open();
-            MySqlDataReader myReader;
-            myReader = mySqlCommand.ExecuteReader();
+            MySqlDataReader myReader = mySqlCommand.ExecuteReader();
             myReader.Read();
+            //myReader.Close();
             int Account_id = myReader.GetInt32("Id");
-            int feedrId = myReader.GetInt32("FeedrId");
+            int feedrId;
+            try
+            {
+                feedrId = myReader.GetInt32("FeedrId");
+            } 
+            catch
+            {
+                
+            }
             string name = myReader.GetString("Name");
             string email = myReader.GetString("Email");
             string password = myReader.GetString("Password"); 
             Account account = new Account(name, password, email);
+            
+            
+
             myReader.Close();
             //get dogs info
             string DogQuery = $"SELECT * FROM Dog WHERE accountId = {id}";
@@ -149,30 +155,50 @@ namespace Login
                 
             }
             myReader.Close();
-            //get feedrs 
 
+            //get feedrs 
             string feedrQuery = $"SELECT * FROM Feedr Where accountId = {id}";
             mySqlCommand = new MySqlCommand(feedrQuery, con);
             myReader = mySqlCommand.ExecuteReader();
 
-            while(myReader.Read()){
+            while (myReader.Read())
+            {
                 int dogId = myReader.GetInt32("DogId");
+                Dog feedrDog = new Dog();
+                foreach(Dog dog in account.Dogs)
+                {
+                    if (dog.Id == dogId)
+                    {
+                        feedrDog = dog;
+                    }
+                }
                 int foodId = myReader.GetInt32("FoodId");
+                Food feedrFood = new Food();
+                foreach (Food accountFood in account.Foods)
+                {
+                    if (accountFood.Id == foodId)
+                    {
+                        feedrFood = accountFood;
+                    }
+                }
                 int foodPerMeal = myReader.GetInt32("FoodPerMeal");
                 int puzzle = myReader.GetInt32("Puzzle");
                 int level = myReader.GetInt32("level");
                 bool active = myReader.GetBoolean("active");
-                
+
+                List < DateTime > mealtimes = new List<DateTime>();
+                Feedr feedr = new Feedr(dogId, level, mealtimes, feedrDog, feedrFood, active);
             }
 
-            myReader.Close();
+
+
             con.Close();
             return account;
         }
 
         public void insertFeedrId(int accountid, int feedrid)
         {
-            string query = $"UPDATE Account SET FeedrId = {feedrid} WHERE Id {accountid}";
+            string query = $"UPDATE Feedr SET AccountId = {accountid} WHERE Id = {feedrid}";
             con.Open(); 
             MySqlCommand update = new MySqlCommand(query, con);
             MySqlDataReader datareader;

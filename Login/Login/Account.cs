@@ -52,7 +52,6 @@ namespace Login
             var Database = new Database();
             if (Database.Login(username, password))
             {
-                getAccountData(username, password);
                 var loginform = new LoginForm();
                 loginform.Hide();
                 var dashboard = new Dashboard(this);
@@ -64,17 +63,6 @@ namespace Login
                 MessageBox.Show("Gebruikersnaam of wachtwoord onjuist");
                 return false;
             }
-        }
-
-        public void getAccountData(string username, string password)
-        {
-            
-            var database = new Database();
-            int id = database.GetId(username, password);
-            DataTable data = database.GetAccountInfo(id);
-            Id = (int)data.Rows[0][0];
-            Name = Convert.ToString(data.Rows[0][2]);
-
         }
 
         public void Logout()

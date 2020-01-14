@@ -15,6 +15,10 @@ namespace Login
         int stageOfLife; 
         public int Weight;
 
+        public Dog()
+        {
+
+        }
         public Dog(string name, DateTime dateofbirth, int stageoflife, int weight)
         {
             Name = name;

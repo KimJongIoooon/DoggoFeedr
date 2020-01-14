@@ -34,7 +34,7 @@
             this.dataBase = new System.Windows.Forms.DataGridView();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.addButton = new System.Windows.Forms.Button();
+            this.btnAdd = new System.Windows.Forms.Button();
             this.drdStageOfLife = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -86,16 +86,16 @@
             this.label2.TabIndex = 4;
             this.label2.Text = "Lichaamsgewicht";
             // 
-            // addButton
+            // btnAdd
             // 
-            this.addButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.addButton.Location = new System.Drawing.Point(571, 420);
-            this.addButton.Name = "addButton";
-            this.addButton.Size = new System.Drawing.Size(188, 42);
-            this.addButton.TabIndex = 7;
-            this.addButton.Text = "Voeg toe";
-            this.addButton.UseVisualStyleBackColor = true;
-            this.addButton.Click += new System.EventHandler(this.addButton_Click);
+            this.btnAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAdd.Location = new System.Drawing.Point(571, 420);
+            this.btnAdd.Name = "btnAdd";
+            this.btnAdd.Size = new System.Drawing.Size(188, 42);
+            this.btnAdd.TabIndex = 7;
+            this.btnAdd.Text = "Voeg toe";
+            this.btnAdd.UseVisualStyleBackColor = true;
+            this.btnAdd.Click += new System.EventHandler(this.addButton_Click);
             // 
             // drdStageOfLife
             // 
@@ -143,7 +143,7 @@
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.drdStageOfLife);
-            this.Controls.Add(this.addButton);
+            this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.dataBase);
@@ -165,7 +165,7 @@
         private System.Windows.Forms.DataGridView dataBase;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Button addButton;
+        private System.Windows.Forms.Button btnAdd;
         private System.Windows.Forms.ComboBox drdStageOfLife;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
