@@ -110,5 +110,12 @@ namespace Login
             var dogsettings = new DogSettings();
             dogsettings.Show();
         }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            var feedrsettings = new FeedrSettings();
+            feedrsettings.Show();
+        }
     }
 }
