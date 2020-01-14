@@ -125,7 +125,7 @@ namespace Login
                 int stageOfLife = myReader.GetInt32("StageOfLife");
                 DateTime dateOfBirth = Convert.ToDateTime(myReader.GetString("DateOfBirth"));
                 
-                account.new Dog
+                
             }
 
             con.Close();
