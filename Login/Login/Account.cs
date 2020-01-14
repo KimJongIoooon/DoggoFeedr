@@ -32,6 +32,11 @@ namespace Login
         {
 
         }
+
+        public void addDogs(Dog dog)
+        {
+            Dogs.Add(dog);
+        }
         
         public void addFeedr(Feedr feedr)
         {

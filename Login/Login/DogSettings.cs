@@ -61,33 +61,6 @@ namespace Login
             //dataBase.AutoResizeRowHeadersWidth();
         }
 
-        private void addToDatabase()
-        {
-            fillFields();
-
-            try
-            {
-                string sqlInsert = "INSERT INTO Dog (Name, Weight, StageOfLife, DateOfBirth)" +
-                    "VALUES ('" + Name + "' , '" + Weight + "', '" + Stage + "', '" + BirthDate + "')";
-                mysqlCon.Open();
-                MySqlCommand InsertCommand = new MySqlCommand(sqlInsert, mysqlCon);
-                MySqlDataReader Insert;
-                Insert = InsertCommand.ExecuteReader();
-                while (Insert.Read())
-                {
-
-                }
-                mysqlCon.Close();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-
-            clearFields();
-
-        }
-
         public void fillStageOfLife()
         {
             foreach (StageOfLife members in Enum.GetValues(typeof(StageOfLife)))
@@ -125,8 +98,9 @@ namespace Login
 
         private void addButton_Click(object sender, EventArgs e)
         {
-            addToDatabase();
             getData();
+            var Dog = new Dog(Name, dateTimePicker.Value, Stage, Weight);
+
         }
     }
 }

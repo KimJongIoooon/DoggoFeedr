@@ -39,7 +39,7 @@
             // passWord
             // 
             this.passWord.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.passWord.Location = new System.Drawing.Point(214, 140);
+            this.passWord.Location = new System.Drawing.Point(214, 138);
             this.passWord.Name = "passWord";
             this.passWord.Size = new System.Drawing.Size(269, 38);
             this.passWord.TabIndex = 8;
@@ -56,7 +56,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(24, 147);
+            this.label2.Location = new System.Drawing.Point(24, 138);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(134, 31);
             this.label2.TabIndex = 6;

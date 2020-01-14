@@ -8,7 +8,7 @@ namespace Login
 {
     public class Feedr
     {
-        int id;
+        public int id { get; private set; }
         int foodLevel;
         List<DateTime> mealtimes;
         Dog dog;
