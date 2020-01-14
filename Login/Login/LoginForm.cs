@@ -33,10 +33,15 @@ namespace Login
             {
                 int accId = db.GetId(tbxUsername.Text, tbxPassword.Text);
                 Account account = db.getAcountInfo(accId);
-                
+                if(account.Feedrs.Count > 0)
+                {
                     Dashboard dashboard = new Dashboard(account);
+                } else
+                {
+                    MessageBox.Show("Error: voeg een feeder toe");
+                }
 
-                
+
                 this.Hide();
                 
             }
