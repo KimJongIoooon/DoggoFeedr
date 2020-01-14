@@ -87,15 +87,7 @@ namespace Login
             stageOfLife.Text = "";
             dateTimePicker.Text = "";
         }
-
-        enum StageOfLife
-        {
-            Volwassen = 460,
-            Groeiende = 1,
-            Drachtig = 2,
-            Lacterend = 607
-        }
-
+        
         private void addButton_Click(object sender, EventArgs e)
         {
             getData();
