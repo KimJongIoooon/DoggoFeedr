@@ -6,8 +6,12 @@ using System.Threading.Tasks;
 
 namespace Login
 {
-    class Dog
+    public class Dog
     {
+       
+        public Dog(string Name)
+        {
 
+        }
     }
 }
