@@ -121,9 +121,11 @@ namespace Login
             while (myReader.Read())
             {
                 string dogName = myReader.GetString("Name");
-                int Weight = myReader.GetInt32("Weight");
-                int StageOfLife = myReader.GetInt32("StageOfLife");
-                int
+                int weight = myReader.GetInt32("Weight");
+                int stageOfLife = myReader.GetInt32("StageOfLife");
+                DateTime dateOfBirth = Convert.ToDateTime(myReader.GetString("DateOfBirth"));
+                
+                account.new Dog
             }
 
             con.Close();
