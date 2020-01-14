@@ -21,13 +21,27 @@ namespace Login
         string Email;
         bool isLoggedIn;
         List<Dog> Dogs = new List<Dog>();
-        //List<Feeder> feeders = new List<Feeder>();
-        //List<Food> foods = new List<Food>();
+        List<Feedr> Feedrs = new List<Feedr>();
+        List<Food> Foods = new List<Food>();
         public Account()
+        {
+            
+        }
+
+        public Account(string name, string password, string email)
         {
 
         }
         
+        public void addFeedr(Feedr feedr)
+        {
+            Feedrs.Add(feedr);
+        }
+        
+        public void addFoods(Food food)
+        {
+            Foods.Add(food);
+        }
         public bool Login(string username, string password)
         {
             var Database = new Database();

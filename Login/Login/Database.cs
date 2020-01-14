@@ -98,6 +98,33 @@ namespace Login
             return dataTable;
             
         }
+        public Account getAcountInfo(int id)
+        {
+            string Query = $"SELECT * FROM Account WHERE ID = {id}";
+
+            MySqlCommand mySqlCommand = new MySqlCommand(Query, con);
+            con.Open();
+            MySqlDataReader myReader;
+            myReader = mySqlCommand.ExecuteReader();
+
+            int Account_id = myReader.GetInt32("Id");
+            int Feeder_id = myReader.GetInt32("FeederId" +
+                "");
+            string name = myReader.GetString("Name");
+
+            string email = myReader.GetString("Email");
+            string password = myReader.GetString("Password"); 
+            Account account = new Account(name, password, email);
+
+            con.Close();
+            return account;
+        }
+        
+        public List<Dog> accountDogs(int id)
+        {
+           List<Dog> dogs = new List<Dog>();
+           return dogs;
+        }
 
         public DataTable getDogData(int id)
         {

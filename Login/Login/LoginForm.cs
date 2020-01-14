@@ -22,14 +22,21 @@ namespace Login
         public LoginForm()
         {
             InitializeComponent();
-            passWord.PasswordChar = '*';
+            tbxPassword.PasswordChar = '*';
         }
         
         private void loginButton_Click(object sender, EventArgs e)
         {
-            var Account = new Account();
-            if (Account.Login(userName.Text, passWord.Text))
+            Database db = new Database();
+
+            if (db.Login(tbxUsername.Text, tbxPassword.Text))
             {
+                int accId = db.GetId(tbxUsername.Text, tbxPassword.Text);
+                Account account = db.getAcountInfo(accId);
+                
+                    Dashboard dashboard = new Dashboard(account);
+
+                
                 this.Hide();
                 
             }
@@ -37,7 +44,7 @@ namespace Login
 
 
 
-        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+            private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             Create create = new Create();
             create.Show();
