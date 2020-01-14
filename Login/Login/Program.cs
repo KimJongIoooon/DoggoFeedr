@@ -20,7 +20,7 @@ namespace Login
             var main = new Main();
             var dogsettings = new DogSettings();
             var loginform = new LoginForm();
-            dashboard.Show();
+            loginform.Show();
             Application.Run();
         }
     }
