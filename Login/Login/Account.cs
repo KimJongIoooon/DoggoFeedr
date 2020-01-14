@@ -33,17 +33,24 @@ namespace Login
 
         }
 
-        public void addDogs(Dog dog)
+        public void addDogs(List<Dog> dogs)
+        {
+            foreach(Dog dog in Dogs)
+            {
+                Dogs.Add(dog);
+            }
+        }
+        public void addDog(Dog dog)
         {
             Dogs.Add(dog);
         }
-        
+
         public void addFeedr(Feedr feedr)
         {
             Feedrs.Add(feedr);
         }
         
-        public void addFoods(Food food)
+        public void addFood(Food food)
         {
             Foods.Add(food);
         }
