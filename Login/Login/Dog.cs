@@ -12,7 +12,7 @@ namespace Login
         public int Id { get; private set; }
         public string Name;
         public DateTime dateOfBirth;
-        StageOfLife StageOfLife; 
+        int stageOfLife; 
         public int Weight;
 
         public Dog(string name, DateTime dateofbirth, int stageoflife, int weight)

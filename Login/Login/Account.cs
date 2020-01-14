@@ -33,13 +33,6 @@ namespace Login
 
         }
 
-        public void addDogs(List<Dog> dogs)
-        {
-            foreach(Dog dog in Dogs)
-            {
-                Dogs.Add(dog);
-            }
-        }
         public void addDog(Dog dog)
         {
             Dogs.Add(dog);

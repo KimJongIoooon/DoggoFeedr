@@ -171,11 +171,12 @@ namespace Login
 
         public void insertFeedrId(int accountid, int feedrid)
         {
-            string stringInsert = $"UPDATE Account SET FeedrId = {feedrid} WHERE Id {accountid}";
+            string query = $"UPDATE Account SET FeedrId = {feedrid} WHERE Id {accountid}";
             con.Open(); 
-            MySqlCommand insert = new MySqlCommand();
-            insert.CommandText = stringInsert;
-            insert.ExecuteNonQuery();
+            MySqlCommand update = new MySqlCommand(query, con);
+            MySqlDataReader datareader;
+            update.CommandText = query;
+            update.ExecuteNonQuery();
             con.Close();
         }
         
