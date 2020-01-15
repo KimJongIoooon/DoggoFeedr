@@ -42,23 +42,9 @@ namespace Login
 
         public void dogData()
         {
-            mysqlCon.Open();
-            adapt = new MySqlDataAdapter();
+            dogName.Text = _account.Feedrs[0].dog.Name;
+            bodyWeight.Text = Convert.ToString(_account.Feedrs[0].dog.Weight);
 
-            string sqlSelectAll = "SELECT * FROM Dog";
-
-            adapt.SelectCommand = new MySqlCommand(sqlSelectAll, mysqlCon);
-
-            MySqlDataReader rdr = adapt.SelectCommand.ExecuteReader();
-
-            while (rdr.Read())
-            {
-                dogName.Text = rdr.GetString(2);
-                bodyWeight.Text = Convert.ToString(rdr.GetInt32(3));
-            }
-
-
-            mysqlCon.Close();
         }
 
         public void foodData()

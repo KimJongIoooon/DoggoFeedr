@@ -36,6 +36,7 @@ namespace Login
                 if (account.Feedrs.Count > 0)
                 {
                     Dashboard dashboard = new Dashboard(account);
+                    dashboard.Show();
                 } else
                 {
                     this.Hide();

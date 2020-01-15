@@ -11,7 +11,7 @@ namespace Login
         public int id { get; private set; }
         int foodLevel;
         List<DateTime> mealtimes;
-        Dog dog;
+        public Dog dog { get; private set; }
         Food food;
         bool isActive;
         public Feedr(int id, int foodlevel, List<DateTime> mealtimes, Dog dog, Food food, bool isActive)

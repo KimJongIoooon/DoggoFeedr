@@ -25,9 +25,12 @@ namespace Login
             
         }
 
-        public Account(string name, string password, string email)
+        public Account(int id, string name, string password, string email)
         {
-
+            Id = id;
+            Name = name;
+            Password = password;
+            Email = email;
         }
 
         public void addDog(Dog dog)

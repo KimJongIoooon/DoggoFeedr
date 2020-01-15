@@ -107,7 +107,7 @@ namespace Login
             string name = myReader.GetString("Name");
             string email = myReader.GetString("Email");
             string password = myReader.GetString("Password"); 
-            Account account = new Account(name, password, email);
+            Account account = new Account(Account_id, name, password, email);
             
             
 
@@ -189,6 +189,7 @@ namespace Login
                 bool active = myReader.GetBoolean("active");
                 List < DateTime > mealtimes = new List<DateTime>();
                 Feedr feedr = new Feedr(feedrId, level, mealtimes, feedrDog, feedrFood, active);
+                account.addFeedr(feedr);
             }
 
 
