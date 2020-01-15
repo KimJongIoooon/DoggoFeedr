@@ -103,5 +103,10 @@ namespace Login
             var feedrsettings = new FeedrSettings();
             feedrsettings.Show();
         }
+
+        private void Dashboard_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }

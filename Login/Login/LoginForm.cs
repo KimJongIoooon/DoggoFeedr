@@ -44,10 +44,7 @@ namespace Login
                     add.Show();
                     MessageBox.Show("Error: voeg een feeder toe");
                 }
-
-
                 this.Hide();
-                
             }
         }
 
