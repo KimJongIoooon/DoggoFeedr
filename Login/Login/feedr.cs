@@ -22,8 +22,6 @@ namespace Login
             this.dog = dog;
             this.food = food;
             this.isActive = isActive;
-
-
         }
     }
 

@@ -19,12 +19,20 @@ namespace Login
         {
 
         }
+        public Dog(int Id, string name, DateTime dateofbirth, int stageoflife, int weight)
+        {
+            this.Id = Id; 
+            this.Name = name;
+            this.dateOfBirth = dateofbirth;
+            this.stageOfLife = stageoflife;
+            this.Weight = weight;
+        }
         public Dog(string name, DateTime dateofbirth, int stageoflife, int weight)
         {
-            Name = name;
-            dateOfBirth = dateofbirth;
-            stageOfLife = stageoflife;
-            Weight = weight;
+            this.Name = name;
+            this.dateOfBirth = dateofbirth;
+            this.stageOfLife = stageoflife;
+            this.Weight = weight;
         }
     }
 }

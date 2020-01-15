@@ -90,6 +90,7 @@ namespace Login
         
         private void addButton_Click(object sender, EventArgs e)
         {
+            
             getData();
             var Dog = new Dog(Name, dtpBirthDate.Value, Stage, Weight);
         }
