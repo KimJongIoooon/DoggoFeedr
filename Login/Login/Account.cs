@@ -11,9 +11,6 @@ namespace Login
 {
     public class Account
     {
-        private MySqlConnection con = new MySqlConnection("server=192.168.8.14;uid=root;pwd=root;database=DoggoFeedr;");
-        private MySqlDataAdapter login;
-        private MySqlDataAdapter idSelect;
         
         public static int Id { get; private set; } 
         public static string Name { get; private set; }
