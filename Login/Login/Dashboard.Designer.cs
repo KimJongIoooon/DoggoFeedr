@@ -47,7 +47,7 @@
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.logOut = new System.Windows.Forms.Button();
             this.dogSettings = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
+            this.feedrSettings = new System.Windows.Forms.Button();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.label11 = new System.Windows.Forms.Label();
             this.progressBar = new System.Windows.Forms.ProgressBar();
@@ -227,15 +227,15 @@
             this.dogSettings.UseVisualStyleBackColor = true;
             this.dogSettings.Click += new System.EventHandler(this.dogSettings_Click);
             // 
-            // button3
+            // feedrSettings
             // 
-            this.button3.Location = new System.Drawing.Point(455, 302);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(75, 51);
-            this.button3.TabIndex = 8;
-            this.button3.Text = "Feedr Instellingen";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
+            this.feedrSettings.Location = new System.Drawing.Point(455, 302);
+            this.feedrSettings.Name = "feedrSettings";
+            this.feedrSettings.Size = new System.Drawing.Size(75, 51);
+            this.feedrSettings.TabIndex = 8;
+            this.feedrSettings.Text = "Feedr Instellingen";
+            this.feedrSettings.UseVisualStyleBackColor = true;
+            this.feedrSettings.Click += new System.EventHandler(this.feedrSettings_Click);
             // 
             // groupBox4
             // 
@@ -339,7 +339,7 @@
             this.Controls.Add(this.testButton);
             this.Controls.Add(this.groupBox5);
             this.Controls.Add(this.groupBox4);
-            this.Controls.Add(this.button3);
+            this.Controls.Add(this.feedrSettings);
             this.Controls.Add(this.dogSettings);
             this.Controls.Add(this.logOut);
             this.Controls.Add(this.groupBox3);
@@ -383,7 +383,7 @@
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.Button logOut;
         private System.Windows.Forms.Button dogSettings;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button feedrSettings;
         private System.Windows.Forms.GroupBox groupBox4;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.TextBox textBox4;

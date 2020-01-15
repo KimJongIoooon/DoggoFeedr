@@ -42,9 +42,15 @@ namespace Login
 
         public void dogData()
         {
-            dogName.Text = _account.Feedrs[0].dog.Name;
-            bodyWeight.Text = Convert.ToString(_account.Feedrs[0].dog.Weight);
+            try
+            {
+                dogName.Text = _account.Feedrs[0].dog.Name;
+                bodyWeight.Text = Convert.ToString(_account.Feedrs[0].dog.Weight);
+            }
+            catch
+            {
 
+            }
         }
 
         public void foodData()
@@ -85,28 +91,28 @@ namespace Login
         {
             var Account = new Account();
             Account.Logout();
-            this.Close();
+            this.Hide();
             var loginform = new LoginForm();
             loginform.Show();
         }
 
         private void dogSettings_Click(object sender, EventArgs e)
         {
-            this.Close();
-            var dogsettings = new DogSettings();
+            this.Hide();
+            var dogsettings = new DogSettings(_account);
             dogsettings.Show();
         }
-
-        private void button3_Click(object sender, EventArgs e)
-        {
-            this.Close();
-            var feedrsettings = new FeedrSettings();
-            feedrsettings.Show();
-        }
-
+        
         private void Dashboard_FormClosed(object sender, FormClosedEventArgs e)
         {
             Application.Exit();
+        }
+
+        private void feedrSettings_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            var feedrsettings = new FeedrSettings();
+            feedrsettings.Show();
         }
     }
 }

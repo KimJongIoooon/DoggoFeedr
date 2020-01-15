@@ -165,15 +165,17 @@ namespace Login
                 {
 
                 }
+
+
                 int dogId = myReader.GetInt32("DogId");
                 Dog feedrDog = new Dog();
-                foreach(Dog dog in account.Dogs)
-                {
-                    if (dog.Id == dogId)
+                    foreach (Dog dog in account.Dogs)
                     {
-                        feedrDog = dog;
+                        if (dog.Id == dogId)
+                        {
+                            feedrDog = dog;
+                        }
                     }
-                }
                 int foodId = myReader.GetInt32("FoodId");
                 Food feedrFood = new Food();
                 foreach (Food accountFood in account.Foods)
@@ -200,7 +202,7 @@ namespace Login
 
         public void insertFeedrId(int accountid, int feedrid)
         {
-            string query = $"UPDATE Feedr SET AccountId = {accountid} WHERE Id {feedrid}";
+            string query = $"UPDATE Feedr SET AccountId = {accountid} WHERE Id = {feedrid}";
             con.Open();
             MySqlCommand update = new MySqlCommand(query, con);
             MySqlDataReader datareader;
@@ -250,10 +252,10 @@ namespace Login
             return dataTable;
         }
 
-        public void DogInsert(string name, int weight, int stage, DateTime birthdate)
+        public void DogInsert(int accountid, string name, int weight, int stage, string birthdate)
         {
-            string sqlInsert = "INSERT INTO Dog (Name, Weight, StageOfLife, DateOfBirth)" +
-                               "VALUES ('" + name + "' , '" + weight + "', '" + stage + "', '" + birthdate + "')";
+            string sqlInsert = "INSERT INTO Dog (AccountId, Name, Weight, StageOfLife, DateOfBirth)" +
+                               "VALUES ('" + accountid + "' , '" + name + "' , '" + weight + "', '" + stage + "', '" + birthdate + "')";
             con.Open();
             MySqlCommand InsertCommand = new MySqlCommand(sqlInsert, con);
             MySqlDataReader Insert;

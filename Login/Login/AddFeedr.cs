@@ -12,6 +12,8 @@ namespace Login
 {
     public partial class AddFeedr : Form
     {
+        private Account _account;
+
         public AddFeedr()
         {
             InitializeComponent();
@@ -21,6 +23,9 @@ namespace Login
         {
             var Database = new Database();
             Database.insertFeedrId(Account.Id, Convert.ToInt32(tbxFeederId.Text));
+            this.Hide();
+            var Dashboard = new Dashboard(_account);
+            Dashboard.Show();
         }
     }
 }
