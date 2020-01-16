@@ -20,7 +20,7 @@ namespace Login
         {
             this.Id = id;
             this.name = name;
-            this.energy = energy;
+            this.energyContent = energyContent;
         }
     }
 }

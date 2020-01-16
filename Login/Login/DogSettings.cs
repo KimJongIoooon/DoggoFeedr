@@ -78,13 +78,13 @@ namespace Login
         
         private void addButton_Click(object sender, EventArgs e)
         {
-            var dog = new Dog(Name, Account.Id, dtpBirthDate.Value, Stage, Weight);
+            var dog = new Dog(Name, _account.Id, dtpBirthDate.Value, Stage, Weight);
 
             if (selectedDog == -1)
             {
                 var Database = new Database();
                 _account.addDog(dog);
-                Database.DogInsert(Account.Id, Name, Weight, Stage, BirthDate);
+                Database.DogInsert(_account.Id, Name, Weight, Stage, BirthDate);
             }
             else
             {
