@@ -34,9 +34,9 @@
             this.cbDog = new System.Windows.Forms.ComboBox();
             this.cbFeedr = new System.Windows.Forms.ComboBox();
             this.lblpuzzle = new System.Windows.Forms.Label();
-            this.lblPuzzleLevel = new System.Windows.Forms.Label();
             this.cbPuzzle = new System.Windows.Forms.ComboBox();
-            this.cbLevel = new System.Windows.Forms.ComboBox();
+            this.btnFoodSettings = new System.Windows.Forms.Button();
+            this.btnSave = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvFeedrs)).BeginInit();
             this.SuspendLayout();
             // 
@@ -99,16 +99,6 @@
             this.lblpuzzle.TabIndex = 6;
             this.lblpuzzle.Text = "Puzzel:";
             // 
-            // lblPuzzleLevel
-            // 
-            this.lblPuzzleLevel.AutoSize = true;
-            this.lblPuzzleLevel.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
-            this.lblPuzzleLevel.Location = new System.Drawing.Point(539, 205);
-            this.lblPuzzleLevel.Name = "lblPuzzleLevel";
-            this.lblPuzzleLevel.Size = new System.Drawing.Size(229, 39);
-            this.lblPuzzleLevel.TabIndex = 7;
-            this.lblPuzzleLevel.Text = "Puzzel Level: ";
-            // 
             // cbPuzzle
             // 
             this.cbPuzzle.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
@@ -118,23 +108,35 @@
             this.cbPuzzle.Size = new System.Drawing.Size(246, 46);
             this.cbPuzzle.TabIndex = 8;
             // 
-            // cbLevel
+            // btnFoodSettings
             // 
-            this.cbLevel.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
-            this.cbLevel.FormattingEnabled = true;
-            this.cbLevel.Location = new System.Drawing.Point(774, 198);
-            this.cbLevel.Name = "cbLevel";
-            this.cbLevel.Size = new System.Drawing.Size(246, 46);
-            this.cbLevel.TabIndex = 9;
+            this.btnFoodSettings.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
+            this.btnFoodSettings.Location = new System.Drawing.Point(774, 202);
+            this.btnFoodSettings.Name = "btnFoodSettings";
+            this.btnFoodSettings.Size = new System.Drawing.Size(205, 97);
+            this.btnFoodSettings.TabIndex = 9;
+            this.btnFoodSettings.Text = "voer instellingen";
+            this.btnFoodSettings.UseVisualStyleBackColor = true;
+            // 
+            // btnSave
+            // 
+            this.btnSave.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
+            this.btnSave.Location = new System.Drawing.Point(546, 202);
+            this.btnSave.Name = "btnSave";
+            this.btnSave.Size = new System.Drawing.Size(190, 97);
+            this.btnSave.TabIndex = 10;
+            this.btnSave.Text = "Opslaan";
+            this.btnSave.UseVisualStyleBackColor = true;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // FeedrSettings
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1068, 474);
-            this.Controls.Add(this.cbLevel);
+            this.Controls.Add(this.btnSave);
+            this.Controls.Add(this.btnFoodSettings);
             this.Controls.Add(this.cbPuzzle);
-            this.Controls.Add(this.lblPuzzleLevel);
             this.Controls.Add(this.lblpuzzle);
             this.Controls.Add(this.cbFeedr);
             this.Controls.Add(this.cbDog);
@@ -158,8 +160,8 @@
         private System.Windows.Forms.ComboBox cbDog;
         private System.Windows.Forms.ComboBox cbFeedr;
         private System.Windows.Forms.Label lblpuzzle;
-        private System.Windows.Forms.Label lblPuzzleLevel;
         private System.Windows.Forms.ComboBox cbPuzzle;
-        private System.Windows.Forms.ComboBox cbLevel;
+        private System.Windows.Forms.Button btnFoodSettings;
+        private System.Windows.Forms.Button btnSave;
     }
 }

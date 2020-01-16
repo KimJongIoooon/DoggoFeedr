@@ -38,6 +38,14 @@ namespace Login
             this.isActive = isActive;
         }
 
+        public Feedr updateFeedr(int id, Dog dog, int puzzle)
+        {
+            this.id = id;
+            this.dog = dog;
+            this.puzzle = puzzle;
+            return this;
+        }
+
     }
 
     

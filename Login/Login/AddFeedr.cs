@@ -22,7 +22,7 @@ namespace Login
         private void btnDoorgaan_Click(object sender, EventArgs e)
         {
             var Database = new Database();
-            Database.insertFeedrId(Account.Id, Convert.ToInt32(tbxFeederId.Text));
+            Database.insertFeedrId(_account.Id, Convert.ToInt32(tbxFeederId.Text));
             this.Hide();
             var Dashboard = new Dashboard(_account);
             Dashboard.Show();

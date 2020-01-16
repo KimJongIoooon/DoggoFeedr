@@ -18,6 +18,7 @@ namespace Login
         MySqlDataAdapter adapt;
         Account owner;
         Feedr currentFeedr;
+        Database database = new Database();
 
 
         public FeedrSettings(Account account)
@@ -28,12 +29,17 @@ namespace Login
             {
                 cbFeedr.Items.Add(feedr.id);
             }
-            cbPuzzle.Items.Add("None");
-            cbPuzzle.Items.Add("Ball Fetch");
+
             foreach(Dog dog in owner.Dogs)
             {
                 cbDog.Items.Add(dog.Name);
             }
+
+            foreach(Puzzles puzzles in Enum.GetValues(typeof(Puzzles)))
+            {
+                cbPuzzle.Items.Add(puzzles);
+            }
+            cbPuzzle.SelectedItem = Puzzles.Geen;
         }
 
         private void FeedrSettings_Load(object sender, EventArgs e)
@@ -73,6 +79,14 @@ namespace Login
             {
                 cbDog.SelectedItem = currentFeedr.dog.Name;
             }
+        }
+
+        private void btnSave_Click(object sender, EventArgs e)
+        {
+            currentFeedr.updateFeedr(Convert.ToInt32(cbFeedr.SelectedItem), owner.Dogs.Find(x => x.Name == cbDog.Text), cbPuzzle.SelectedIndex);
+            owner.Feedrs[owner.Feedrs.FindIndex(x => x.id.Equals(Convert.ToInt32(cbFeedr.Text)))] = currentFeedr;
+            database.UpdateAccountInfo(owner);
+            GetData();
         }
     }
 }

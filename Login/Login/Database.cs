@@ -100,7 +100,7 @@ namespace Login
             int accountId = account.Id;
             string accountName = account.Name;
 
-            string accUpdateQuery = $"UPDATE `Account` SET `Name` = '{account.Name}' WHERE `Account`.`Id` = 1;";
+            string accUpdateQuery = $"UPDATE `Account` SET `Name` = '{account.Name}' WHERE `Account`.`Id` = {accountId};";
 
             //update account
             string accQuery = $"UPDATE `Account` SET `Name` = '{account.Name}' WHERE `Account`.`Id` = 1;";
@@ -111,23 +111,23 @@ namespace Login
             //Id AccountId DogId FoodId FoodPerMeal Puzzle Level Active
             foreach (Feedr feedr in account.Feedrs)
             {
-                string feedrQuery = $"UPDATE `Feedr` SET `DogId` = '{feedr.dog.Id}'  `AccountId` = '{account.Id}', `FoodId` = '{feedr.food.Id}', `FoodPerMeal` = '{feedr.foodPerMeal}', `Puzzle` = '{1}', `Level` = '{0}', `Active` = '{feedr.isActive}' WHERE `Account`.`Id` = {account.Id};";
-                MySqlCommand updateFeedr = new MySqlCommand(accQuery, con);
+                string feedrQuery = $"UPDATE `Feedr` SET `AccountId` = {account.Id}, `DogId` = {feedr.dog.Id}, `FoodId` = {feedr.food.Id}, `FoodPerMeal` = '{feedr.foodPerMeal}', `Puzzle` = '{1}', `Level` = '{0}', `Active` = {feedr.isActive} WHERE `Id` = {feedr.id};";
+                MySqlCommand updateFeedr = new MySqlCommand(feedrQuery, con);
                 updateFeedr.ExecuteNonQuery();
             }
 
             //update Dogs
             foreach (Dog dog in account.Dogs)
             {
-                string feedrQuery = $"UPDATE `Dog` SET `Name` = '{dog.Name}', `Weight` = '{dog.Weight}', `StageOfLife` = '{dog.stageOfLife}', `DateOfBirth` = '{dog.dateOfBirth}' WHERE `Dog`.`Id` = {dog.Id};";
-                MySqlCommand updateFeedr = new MySqlCommand(accQuery, con);
+                string dogQuery = $"UPDATE `Dog` SET `Name` = '{dog.Name}', `Weight` = '{dog.Weight}', `StageOfLife` = '{dog.stageOfLife}', `DateOfBirth` = '{dog.dateOfBirth.ToString()}' WHERE `Dog`.`Id` = {dog.Id};";
+                MySqlCommand updateFeedr = new MySqlCommand(dogQuery, con);
                 updateFeedr.ExecuteNonQuery();
             }
             //update Foods
             foreach (Food food in account.Foods)
             {
-                string foodQuery = $"UPDATE `Food`, `Name` = '{food.name}', `Energy` = '{food.energyContent}' WHERE `Food`.`Id` = '{food.Id}';";
-                MySqlCommand updateFeedr = new MySqlCommand(accQuery, con);
+                string foodQuery = $"UPDATE `Food` SET `Name` = '{food.name}', `Energy` = '{food.energyContent}' WHERE `Food`.`Id` = '{food.Id}';";
+                MySqlCommand updateFeedr = new MySqlCommand(foodQuery, con);
                 updateFeedr.ExecuteNonQuery();
             }
 
@@ -171,7 +171,7 @@ namespace Login
                 string dogName = myReader.GetString("Name");
                 int weight = myReader.GetInt32("Weight");
                 int stageOfLife = myReader.GetInt32("StageOfLife");
-                DateTime dateOfBirth = myReader.GetDateTime("DateOfBirth");
+                DateTime dateOfBirth = Convert.ToDateTime(myReader.GetString("DateOfBirth"));
 
 
                 account.addDog(new Dog(dogId, dogName, dateOfBirth, stageOfLife, weight));
