@@ -50,6 +50,8 @@ namespace Login
                 tbxFood.Text = _account.Foods[0].name;
                 Puzzles puzzles = (Puzzles)_account.Feedrs[0].puzzle;
                 tbxPuzzle.Text = puzzles.ToString();
+                progressBar.Value = _account.Feedrs[0].foodLevel;
+                label11.Text = _account.Feedrs[0].foodLevel.ToString();
             }
             catch
             {

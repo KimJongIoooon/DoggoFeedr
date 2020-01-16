@@ -9,13 +9,13 @@ namespace Login
     public class Feedr
     {
         public int id { get; private set; }
-        int foodLevel;
         List<DateTime> mealtimes;
         public int puzzle { get; private set; }
         public Dog dog { get; private set; }
         public Food food { get; private set; }
         public bool isActive { get; private set; }
         public int foodPerMeal { get; private set; }
+        public int foodLevel { get; private set; }
         public List<LogEntry> log { get; private set; }
         public Feedr(int id, int foodlevel, List<DateTime> mealtimes, Dog dog, Food food, bool isActive)
         {
