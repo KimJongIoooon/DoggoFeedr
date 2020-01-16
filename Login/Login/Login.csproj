@@ -51,6 +51,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Account.cs" />
+    <Compile Include="FeedTime.cs" />
+    <Compile Include="FoodSetings.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FoodSetings.Designer.cs">
+      <DependentUpon>FoodSetings.cs</DependentUpon>
+    </Compile>
     <Compile Include="Global.cs" />
     <Compile Include="Dashboard.cs">
       <SubType>Form</SubType>
@@ -115,6 +122,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FeedrSettings.resx">
       <DependentUpon>FeedrSettings.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FoodSetings.resx">
+      <DependentUpon>FoodSetings.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>
