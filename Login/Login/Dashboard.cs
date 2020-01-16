@@ -28,9 +28,9 @@ namespace Login
         private void Dashboard_Load(object sender, EventArgs e)
         {
             dogData();
-            foodData();
             label11.Text = progressBar.Value.ToString() + " %";
             userName.Text = Account.Name;
+            dogName.Text = _account.Feedrs[0].dog.Name;
         }
 
         public void showPercentage()
@@ -46,32 +46,15 @@ namespace Login
             {
                 dogName.Text = _account.Feedrs[0].dog.Name;
                 bodyWeight.Text = Convert.ToString(_account.Feedrs[0].dog.Weight);
+                tbxFeedr.Text = _account.Feedrs[0].id.ToString();
+                tbxFood.Text = _account.Foods[0].name;
             }
             catch
             {
 
             }
         }
-
-        public void foodData()
-        {
-            mysqlCon.Open();
-            adapt = new MySqlDataAdapter();
-
-            string sqlSelectAll = "SELECT * FROM Food";
-
-            adapt.SelectCommand = new MySqlCommand(sqlSelectAll, mysqlCon);
-
-            MySqlDataReader rdr = adapt.SelectCommand.ExecuteReader();
-
-            while (rdr.Read())
-            {
-                foodType.Text = rdr.GetString(2);
-            }
-
-            mysqlCon.Close();
-        }
-
+        
         private void timer1_Tick(object sender, EventArgs e)
         {
             label7.Text = DateTime.Now.ToString();

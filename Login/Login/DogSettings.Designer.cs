@@ -31,7 +31,6 @@
         {
             this.tbxDogName = new System.Windows.Forms.TextBox();
             this.tbxBodyWeight = new System.Windows.Forms.TextBox();
-            this.dataBase = new System.Windows.Forms.DataGridView();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.btnAdd = new System.Windows.Forms.Button();
@@ -40,7 +39,8 @@
             this.label4 = new System.Windows.Forms.Label();
             this.dtpBirthDate = new System.Windows.Forms.DateTimePicker();
             this.btnBack = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.dataBase)).BeginInit();
+            this.lbxDogs = new System.Windows.Forms.ListBox();
+            this.btnAddDog = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // tbxDogName
@@ -58,14 +58,6 @@
             this.tbxBodyWeight.Name = "tbxBodyWeight";
             this.tbxBodyWeight.Size = new System.Drawing.Size(188, 38);
             this.tbxBodyWeight.TabIndex = 1;
-            // 
-            // dataBase
-            // 
-            this.dataBase.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataBase.Location = new System.Drawing.Point(12, 13);
-            this.dataBase.Name = "dataBase";
-            this.dataBase.Size = new System.Drawing.Size(532, 449);
-            this.dataBase.TabIndex = 2;
             // 
             // label1
             // 
@@ -94,7 +86,7 @@
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(188, 42);
             this.btnAdd.TabIndex = 7;
-            this.btnAdd.Text = "Voeg toe";
+            this.btnAdd.Text = "opslaan";
             this.btnAdd.UseVisualStyleBackColor = true;
             this.btnAdd.Click += new System.EventHandler(this.addButton_Click);
             // 
@@ -146,11 +138,33 @@
             this.btnBack.UseVisualStyleBackColor = true;
             this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
             // 
+            // lbxDogs
+            // 
+            this.lbxDogs.FormattingEnabled = true;
+            this.lbxDogs.Location = new System.Drawing.Point(12, 13);
+            this.lbxDogs.Name = "lbxDogs";
+            this.lbxDogs.Size = new System.Drawing.Size(258, 459);
+            this.lbxDogs.TabIndex = 13;
+            this.lbxDogs.SelectedIndexChanged += new System.EventHandler(this.lbxDogs_SelectedIndexChanged);
+            // 
+            // btnAddDog
+            // 
+            this.btnAddDog.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAddDog.Location = new System.Drawing.Point(12, 478);
+            this.btnAddDog.Name = "btnAddDog";
+            this.btnAddDog.Size = new System.Drawing.Size(258, 42);
+            this.btnAddDog.TabIndex = 14;
+            this.btnAddDog.Text = "Voeg hond toe";
+            this.btnAddDog.UseVisualStyleBackColor = true;
+            this.btnAddDog.Click += new System.EventHandler(this.btnAddDog_Click);
+            // 
             // DogSettings
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1039, 607);
+            this.Controls.Add(this.btnAddDog);
+            this.Controls.Add(this.lbxDogs);
             this.Controls.Add(this.btnBack);
             this.Controls.Add(this.dtpBirthDate);
             this.Controls.Add(this.label4);
@@ -159,14 +173,12 @@
             this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.dataBase);
             this.Controls.Add(this.tbxBodyWeight);
             this.Controls.Add(this.tbxDogName);
             this.Name = "DogSettings";
             this.Text = " HondenInstellingen";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.DogSettings_FormClosed);
             this.Load += new System.EventHandler(this.Form1_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dataBase)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -176,7 +188,6 @@
 
         private System.Windows.Forms.TextBox tbxDogName;
         private System.Windows.Forms.TextBox tbxBodyWeight;
-        private System.Windows.Forms.DataGridView dataBase;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button btnAdd;
@@ -185,6 +196,8 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.DateTimePicker dtpBirthDate;
         private System.Windows.Forms.Button btnBack;
+        private System.Windows.Forms.ListBox lbxDogs;
+        private System.Windows.Forms.Button btnAddDog;
     }
 }
 

@@ -12,7 +12,7 @@ namespace Login
         public int Id { get; private set; }
         public string Name;
         public DateTime dateOfBirth;
-        int stageOfLife; 
+        public int stageOfLife; 
         public int Weight;
 
         public Dog()
@@ -43,5 +43,9 @@ namespace Login
             this.Weight = weight;
         }
 
+        public override string ToString()
+        {
+            return Name;
+        }
     }
 }
