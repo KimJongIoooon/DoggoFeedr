@@ -96,7 +96,7 @@ namespace Login
         private void feedrSettings_Click(object sender, EventArgs e)
         {
             this.Hide();
-            var feedrsettings = new FeedrSettings();
+            var feedrsettings = new FeedrSettings(_account);
             feedrsettings.Show();
         }
     }

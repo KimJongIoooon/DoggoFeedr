@@ -16,10 +16,24 @@ namespace Login
         MySqlConnection mysqlCon = new MySqlConnection("server=192.168.8.14;uid=root;pwd=root;database=DoggoFeedr;");
         MySqlCommand cmd;
         MySqlDataAdapter adapt;
+        Account owner;
+        Feedr currentFeedr;
 
-        public FeedrSettings()
+
+        public FeedrSettings(Account account)
         {
             InitializeComponent();
+            owner = account;
+            foreach(Feedr feedr in owner.Feedrs)
+            {
+                cbFeedr.Items.Add(feedr.id);
+            }
+            cbPuzzle.Items.Add("None");
+            cbPuzzle.Items.Add("Ball Fetch");
+            foreach(Dog dog in owner.Dogs)
+            {
+                cbDog.Items.Add(dog.Name);
+            }
         }
 
         private void FeedrSettings_Load(object sender, EventArgs e)
@@ -31,7 +45,7 @@ namespace Login
         {
             mysqlCon.Open();
             adapt = new MySqlDataAdapter();
-            string sqlSelectAll = "SELECT * FROM Feeder";
+            string sqlSelectAll = "SELECT * FROM Feedr";
 
             adapt.SelectCommand = new MySqlCommand(sqlSelectAll, mysqlCon);
 
@@ -50,6 +64,15 @@ namespace Login
             dgvFeedrs.AutoResizeRows();
             dgvFeedrs.AutoResizeColumnHeadersHeight();
             //dgvFeedrs.AutoResizeRowHeadersWidth();
+        }
+
+        private void cbFeedr_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            currentFeedr = owner.Feedrs.Find(x => x.id == Convert.ToInt32(cbFeedr.Text));
+            if (currentFeedr.dog != null)
+            {
+                cbDog.SelectedItem = currentFeedr.dog.Name;
+            }
         }
     }
 }
