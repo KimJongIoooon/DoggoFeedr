@@ -105,7 +105,15 @@ namespace Login
             //myReader.Close();
             int Account_id = myReader.GetInt32("Id");
             string name = myReader.GetString("Name");
-            string email = myReader.GetString("Email");
+            string email = String.Empty;
+            try
+            {
+                email = myReader.GetString("Email");
+            }
+            catch
+            {
+
+            }
             string password = myReader.GetString("Password"); 
             Account account = new Account(Account_id, name, password, email);
             

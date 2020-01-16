@@ -23,6 +23,7 @@ namespace Login
         int Stage;
         string BirthDate;
         private Account _account;
+        private int selectedDog;
 
         public DogSettings(Account account)
         {
@@ -32,36 +33,21 @@ namespace Login
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            getData();
+            // getData();
+            getDogs();
             fillStageOfLife();
         }
 
-        // get data
-        public void getData()
+        public void getDogs()
         {
-            mysqlCon.Open();
-            adapt = new MySqlDataAdapter();
-
-            string sqlSelectAll = "SELECT * FROM Dog";
-
-            adapt.SelectCommand = new MySqlCommand(sqlSelectAll, mysqlCon);
-
-            DataTable table = new DataTable();
-            adapt.Fill(table);
-
-            BindingSource bSource = new BindingSource();
-            bSource.DataSource = table;
-
-            dataBase.DataSource = bSource;
-
-            mysqlCon.Close();
-
-            // zorgt ervoor dat alle colommen en rijen automatisch aangepast worden zodat de tekst past
-            dataBase.AutoResizeColumns();
-            dataBase.AutoResizeRows();
-            dataBase.AutoResizeColumnHeadersHeight();
-            //dataBase.AutoResizeRowHeadersWidth();
+            lbxDogs.Items.Clear();
+            foreach (Dog dog in _account.Dogs)
+            {
+                lbxDogs.Items.Add(dog);
+            }
+            
         }
+
 
         public void fillStageOfLife()
         {
@@ -92,11 +78,29 @@ namespace Login
         
         private void addButton_Click(object sender, EventArgs e)
         {
+            var dog = new Dog(Name, Account.Id, dtpBirthDate.Value, Stage, Weight);
+
+            if (selectedDog == -1)
+            {
+                var Database = new Database();
+                _account.addDog(dog);
+                Database.DogInsert(Account.Id, Name, Weight, Stage, BirthDate);
+            }
+            else
+            {
+                for (int i = 0; i < _account.Dogs.Count; i++)
+                {
+                    if (_account.Dogs[i].Id == selectedDog)
+                    {
+                        _account.Dogs[i] = dog;
+                        MessageBox.Show("to do: fix update method in acc");
+                    }    
+                }
+                
+            }
             fillFields();
-            var Dog = new Dog(Name, Account.Id, dtpBirthDate.Value, Stage, Weight);
-            var Database = new Database();
-            Database.DogInsert(Account.Id, Name, Weight, Stage, BirthDate);
-            getData();
+            // getData();
+            getDogs();
             clearFields();
         }
 
@@ -110,6 +114,22 @@ namespace Login
             this.Hide();
             var Dashboard = new Dashboard(_account);
             Dashboard.Show();
+        }
+
+        private void lbxDogs_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            int index = lbxDogs.SelectedIndex;
+            Dog dog = (Dog)lbxDogs.Items[index];
+            tbxDogName.Text = dog.Name;
+            tbxBodyWeight.Text = dog.Weight.ToString();
+            drdStageOfLife.SelectedIndex = dog.stageOfLife;
+            dtpBirthDate.Value = dog.dateOfBirth;
+            selectedDog = dog.Id;
+        }
+
+        private void btnAddDog_Click(object sender, EventArgs e)
+        {
+            selectedDog = -1;
         }
     }
 }

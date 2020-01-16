@@ -37,7 +37,7 @@
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.label7 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.foodType = new System.Windows.Forms.TextBox();
+            this.tbxFood = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
@@ -52,7 +52,7 @@
             this.label11 = new System.Windows.Forms.Label();
             this.progressBar = new System.Windows.Forms.ProgressBar();
             this.label8 = new System.Windows.Forms.Label();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.tbxFeedr = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.userName = new System.Windows.Forms.TextBox();
@@ -114,7 +114,7 @@
             // 
             this.groupBox2.Controls.Add(this.label7);
             this.groupBox2.Controls.Add(this.label3);
-            this.groupBox2.Controls.Add(this.foodType);
+            this.groupBox2.Controls.Add(this.tbxFood);
             this.groupBox2.Controls.Add(this.label4);
             this.groupBox2.Location = new System.Drawing.Point(221, 107);
             this.groupBox2.Name = "groupBox2";
@@ -140,12 +140,12 @@
             this.label3.TabIndex = 2;
             this.label3.Text = "Tijd:";
             // 
-            // foodType
+            // tbxFood
             // 
-            this.foodType.Location = new System.Drawing.Point(6, 45);
-            this.foodType.Name = "foodType";
-            this.foodType.Size = new System.Drawing.Size(100, 20);
-            this.foodType.TabIndex = 1;
+            this.tbxFood.Location = new System.Drawing.Point(6, 45);
+            this.tbxFood.Name = "tbxFood";
+            this.tbxFood.Size = new System.Drawing.Size(100, 20);
+            this.tbxFood.TabIndex = 1;
             // 
             // label4
             // 
@@ -242,7 +242,7 @@
             this.groupBox4.Controls.Add(this.label11);
             this.groupBox4.Controls.Add(this.progressBar);
             this.groupBox4.Controls.Add(this.label8);
-            this.groupBox4.Controls.Add(this.textBox4);
+            this.groupBox4.Controls.Add(this.tbxFeedr);
             this.groupBox4.Controls.Add(this.label9);
             this.groupBox4.Location = new System.Drawing.Point(629, 107);
             this.groupBox4.Name = "groupBox4";
@@ -278,12 +278,12 @@
             this.label8.TabIndex = 2;
             this.label8.Text = "Feedr";
             // 
-            // textBox4
+            // tbxFeedr
             // 
-            this.textBox4.Location = new System.Drawing.Point(6, 45);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(100, 20);
-            this.textBox4.TabIndex = 1;
+            this.tbxFeedr.Location = new System.Drawing.Point(6, 45);
+            this.tbxFeedr.Name = "tbxFeedr";
+            this.tbxFeedr.Size = new System.Drawing.Size(100, 20);
+            this.tbxFeedr.TabIndex = 1;
             // 
             // label9
             // 
@@ -372,7 +372,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox foodType;
+        private System.Windows.Forms.TextBox tbxFood;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.TextBox textBox1;
@@ -386,7 +386,7 @@
         private System.Windows.Forms.Button feedrSettings;
         private System.Windows.Forms.GroupBox groupBox4;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox tbxFeedr;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.GroupBox groupBox5;
         private System.Windows.Forms.TextBox userName;

@@ -13,9 +13,7 @@ namespace Login
 {
     public partial class LoginForm : Form
     {
-        MySqlConnection con = new MySqlConnection("server=192.168.8.14;uid=colin;pwd=root;database=DoggoFeedr;");
-        MySqlDataAdapter adap;
-        MySqlDataAdapter idSelect;
+        private Account _account;
 
         public static int accountId;
 
