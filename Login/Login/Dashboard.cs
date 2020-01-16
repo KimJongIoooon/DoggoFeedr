@@ -14,9 +14,8 @@ namespace Login
 {
     public partial class Dashboard : Form
     {
-        MySqlConnection mysqlCon = new MySqlConnection("server=192.168.8.14;uid=root;pwd=root;database=DoggoFeedr;");
-        MySqlCommand cmd;
-        MySqlDataAdapter adapt;
+        private TimeSpan timeToGo;
+        private System.Threading.Timer timer;
         Account _account;
 
         public Dashboard(Account account)
@@ -58,10 +57,44 @@ namespace Login
 
             }
         }
-        
+
+        private void SetUpTimer(TimeSpan alertTime)
+        {
+            DateTime current = DateTime.Now;
+            timeToGo = alertTime - current.TimeOfDay;
+            if (timeToGo < TimeSpan.Zero)
+            {
+                return;//time already passed 
+            }
+            this.timer = new System.Threading.Timer(x =>
+            {
+                this.ShowMessageToUser();
+            }, null, timeToGo, Timeout.InfiniteTimeSpan);
+        }
+
+        private void ShowMessageToUser()
+        {
+            if (this.InvokeRequired)
+            {
+                this.Invoke(new MethodInvoker(this.ShowMessageToUser));
+            }
+            else
+            {
+                MessageBox.Show("HET IS TIJD");
+            }
+        }
+
+        private void settimer()
+        {
+            TimeSpan time = new TimeSpan(21, 10, 00);
+            SetUpTimer(time);
+        }
+
+
         private void timer1_Tick(object sender, EventArgs e)
         {
-            label7.Text = DateTime.Now.ToString();
+            settimer();
+            label7.Text = timeToGo.Hours + ":" + timeToGo.Minutes + ":" + timeToGo.Seconds.ToString();
         }
 
         private void testButton_Click(object sender, EventArgs e)
