@@ -33,7 +33,7 @@ namespace Login
             {
                 return false;
             }
-
+            
         }
 
         public int GetId(string username, string password)
@@ -91,7 +91,7 @@ namespace Login
         MySqlDataReader ExecuteQuery(string Query)
         {
             MySqlCommand mySqlCommand = new MySqlCommand(Query, con);
-            MySqlDataReader dataReader = mySqlCommand.ExecuteReader();
+            MySqlDataReader dataReader = mySqlCommand.ExecuteReader();  
             return dataReader;
         }
         public void UpdateDogInfo(Dog dog, Account account)
@@ -122,18 +122,6 @@ namespace Login
                 string feedrQuery = $"UPDATE `Feedr` SET `AccountId` = {account.Id}, `DogId` = {feedr.dog.Id}, `FoodId` = {feedr.food.Id}, `FoodPerMeal` = '{feedr.foodPerMeal}', `Puzzle` = '{1}', `Level` = '{0}', `Active` = {feedr.isActive} WHERE `Id` = {feedr.id};";
                 MySqlCommand updateFeedr = new MySqlCommand(feedrQuery, con);
                 updateFeedr.ExecuteNonQuery();
-                //update Times
-                foreach (FeedTime time in feedr.mealtimes)
-                {
-                    int count = 0;
-                    if (count == 0)
-                    {
-                        string timeQuery = $"UPDATE `Time` SET `FeedrId` = '{feedr.id}', `Time` = '{time}' WHERE `Id` = '{time.Id}';";
-                        MySqlCommand updatetime = new MySqlCommand(timeQuery, con);
-                        updateFeedr.ExecuteNonQuery();
-                    }
-
-                }
             }
 
             //update Dogs
@@ -173,16 +161,16 @@ namespace Login
             {
 
             }
-            string password = myReader.GetString("Password");
+            string password = myReader.GetString("Password"); 
             Account account = new Account(Account_id, name, password, email);
-
-
+            
+            
 
             myReader.Close();
             //get dogs info
             string DogQuery = $"SELECT * FROM Dog WHERE accountId = {id}";
             mySqlCommand = new MySqlCommand(DogQuery, con);
-
+            
             myReader = mySqlCommand.ExecuteReader();
 
             while (myReader.Read())
@@ -195,14 +183,14 @@ namespace Login
 
 
                 account.addDog(new Dog(dogId, dogName, dateOfBirth, stageOfLife, weight));
-
+                
             }
             myReader.Close();
 
             //get foods
             string foodQuery = $"SELECT * FROM Food Where accountId = {id}";
             mySqlCommand = new MySqlCommand(foodQuery, con);
-
+            
             myReader = mySqlCommand.ExecuteReader();
 
             while (myReader.Read())
@@ -211,7 +199,7 @@ namespace Login
                 string foodName = myReader.GetString("Name");
                 int energy = myReader.GetInt32("Energy");
                 account.addFood(new Food(foodid, foodName, energy));
-
+                
             }
             myReader.Close();
 
@@ -236,13 +224,13 @@ namespace Login
 
                 int dogId = myReader.GetInt32("DogId");
                 Dog feedrDog = new Dog();
-                foreach (Dog dog in account.Dogs)
-                {
-                    if (dog.Id == dogId)
+                    foreach (Dog dog in account.Dogs)
                     {
-                        feedrDog = dog;
+                        if (dog.Id == dogId)
+                        {
+                            feedrDog = dog;
+                        }
                     }
-                }
                 int foodId = myReader.GetInt32("FoodId");
                 Food feedrFood = new Food();
                 foreach (Food accountFood in account.Foods)
@@ -256,7 +244,7 @@ namespace Login
                 int puzzle = myReader.GetInt32("Puzzle");
                 int level = myReader.GetInt32("level");
                 bool active = myReader.GetBoolean("active");
-                List<FeedTime> mealtimes = new List<FeedTime>();
+                List < DateTime > mealtimes = new List<DateTime>();
                 Feedr feedr = new Feedr(feedrId, level, mealtimes, feedrDog, feedrFood, puzzle, active);
                 account.addFeedr(feedr);
             }
@@ -265,15 +253,6 @@ namespace Login
 
             con.Close();
             return account;
-        }
-
-        public void getFeedTimeCount()
-        {
-            string query = "SELECT Count(*) FROM Time";
-            con.Open();
-            MySqlCommand countcommand = new MySqlCommand(query, con);
-            int count = Convert.ToInt32(countcommand.ExecuteScalar());
-            FeedTime.NextId = count + 1;
         }
 
         public void insertFeedrId(int accountid, int feedrid)
@@ -289,11 +268,11 @@ namespace Login
             con.Close();
             datareader.Close();
         }
-
+        
         public List<Dog> AccountDogs(int id)
         {
-            List<Dog> dogs = new List<Dog>();
-            return dogs;
+           List<Dog> dogs = new List<Dog>();
+           return dogs;
         }
 
         public DataTable GetDogData(int id)
@@ -317,7 +296,7 @@ namespace Login
 
             return dataTable;
         }
-
+        
         public DataTable GetFeedrData(int id)
         {
             con.Open();

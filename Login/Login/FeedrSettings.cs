@@ -16,8 +16,8 @@ namespace Login
         MySqlConnection mysqlCon = new MySqlConnection("server=192.168.8.14;uid=root;pwd=root;database=DoggoFeedr;");
         MySqlCommand cmd;
         MySqlDataAdapter adapt;
-        public Account owner;
-        public Feedr currentFeedr;
+        Account owner;
+        Feedr currentFeedr;
         Database database = new Database();
 
 
@@ -40,25 +40,44 @@ namespace Login
                 cbPuzzle.Items.Add(puzzles);
             }
             cbPuzzle.SelectedItem = Puzzles.Geen;
-            btnFoodSettings.Enabled = false;
         }
 
         private void FeedrSettings_Load(object sender, EventArgs e)
         {
+            GetData();
         }
 
+        public void GetData()
+        {
+            mysqlCon.Open();
+            adapt = new MySqlDataAdapter();
+            string sqlSelectAll = "SELECT * FROM Feedr";
+
+            adapt.SelectCommand = new MySqlCommand(sqlSelectAll, mysqlCon);
+
+            DataTable table = new DataTable();
+            adapt.Fill(table);
+
+            BindingSource bSource = new BindingSource();
+            bSource.DataSource = table;
+
+            dgvFeedrs.DataSource = bSource;
+
+            mysqlCon.Close();
+
+            // zorgt ervoor dat alle colommen en rijen automatisch aangepast worden zodat de tekst past
+            dgvFeedrs.AutoResizeColumns();
+            dgvFeedrs.AutoResizeRows();
+            dgvFeedrs.AutoResizeColumnHeadersHeight();
+            //dgvFeedrs.AutoResizeRowHeadersWidth();
+        }
 
         private void cbFeedr_SelectedIndexChanged(object sender, EventArgs e)
         {
             currentFeedr = owner.Feedrs.Find(x => x.id == Convert.ToInt32(cbFeedr.Text));
             if (currentFeedr.dog != null)
             {
-                cbDog.SelectedItem = currentFeedr.dog.Name;               
-            }
-
-            if (cbDog.Text != null)
-            {
-                btnFoodSettings.Enabled = true;
+                cbDog.SelectedItem = currentFeedr.dog.Name;
             }
         }
 
@@ -67,12 +86,7 @@ namespace Login
             currentFeedr.updateFeedr(Convert.ToInt32(cbFeedr.SelectedItem), owner.Dogs.Find(x => x.Name == cbDog.Text), cbPuzzle.SelectedIndex);
             owner.Feedrs[owner.Feedrs.FindIndex(x => x.id.Equals(Convert.ToInt32(cbFeedr.Text)))] = currentFeedr;
             database.UpdateAccountInfo(owner);
-        }
-
-        private void btnFoodSettings_Click(object sender, EventArgs e)
-        {
-            FoodSetings food = new FoodSetings(this);
-            food.Show();
+            GetData();
         }
     }
 }

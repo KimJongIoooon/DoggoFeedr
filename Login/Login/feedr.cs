@@ -9,7 +9,7 @@ namespace Login
     public class Feedr
     {
         public int id { get; private set; }
-        public List<FeedTime> mealtimes;
+        List<DateTime> mealtimes;
         public int puzzle { get; private set; }
         public Dog dog { get; private set; }
         public Food food { get; private set; }
@@ -17,7 +17,7 @@ namespace Login
         public int foodPerMeal { get; private set; }
         public int foodLevel { get; private set; }
         public List<LogEntry> log { get; private set; }
-        public Feedr(int id, int foodlevel, List<FeedTime> mealtimes, Dog dog, Food food, bool isActive)
+        public Feedr(int id, int foodlevel, List<DateTime> mealtimes, Dog dog, Food food, bool isActive)
         {
             this.id = id;
             this.foodLevel = foodlevel;
@@ -27,7 +27,7 @@ namespace Login
             this.isActive = isActive;
         }
 
-        public Feedr(int id, int foodlevel, List<FeedTime> mealtimes, Dog dog, Food food, int puzzle, bool isActive)
+        public Feedr(int id, int foodlevel, List<DateTime> mealtimes, Dog dog, Food food, int puzzle, bool isActive)
         {
             this.id = id;
             this.foodLevel = foodlevel;
