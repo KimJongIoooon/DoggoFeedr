@@ -47,7 +47,7 @@ namespace Login
                 bodyWeight.Text = Convert.ToString(_account.Feedrs[0].dog.Weight);
                 foreach (Feedr feedrs in _account.Feedrs)
                 {
-                    cbxFeedrs.Items.Add(feedrs.id);
+                    cbxFeedrs.Items.Add(feedrs);
                 }
                 tbxFood.Text = _account.Foods[0].name;
                 Puzzles puzzles = (Puzzles)_account.Feedrs[0].puzzle;
