@@ -16,9 +16,9 @@ namespace Login
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            var dashboard = new Dashboard(new Account());
-            var main = new Main();
-            var dogsettings = new DogSettings(new Account());
+            //var dashboard = new Dashboard(new Account());
+            //var main = new Main();
+            //var dogsettings = new DogSettings(new Account());
             var loginform = new LoginForm();
             loginform.Show();
             Application.Run();
