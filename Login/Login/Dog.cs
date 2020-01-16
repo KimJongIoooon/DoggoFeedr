@@ -19,7 +19,34 @@ namespace Login
         {
 
         }
-        public Dog(int Id, string name, DateTime dateofbirth, int stageoflife, int weight)
+
+        public double getEnergieBehoefte()
+        {
+            double energieBehoefte;
+
+            switch (stageOfLife)
+            {
+                case 0:
+                    energieBehoefte = 460 * Math.Pow(20, 0.75);
+                    break;
+                case 1:
+                    energieBehoefte = 460 * Math.Pow(20, 0.75);
+                    break;
+                case 2:
+                    energieBehoefte = 460 * Math.Pow(20, 0.75);
+                    break;
+                case 3:
+                    energieBehoefte = 460 * Math.Pow(20, 0.75);
+                    break;
+                default:
+                    throw new Exception("error energie behofte");
+                    break;
+            }
+
+
+            return energieBehoefte;
+        }
+            public Dog(int Id, string name, DateTime dateofbirth, int stageoflife, int weight)
         {
             this.Id = Id; 
             this.Name = name;
