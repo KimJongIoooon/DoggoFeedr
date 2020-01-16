@@ -42,7 +42,7 @@
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.tbxPuzzle = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.logOut = new System.Windows.Forms.Button();
@@ -160,7 +160,7 @@
             // 
             this.groupBox3.Controls.Add(this.textBox1);
             this.groupBox3.Controls.Add(this.label5);
-            this.groupBox3.Controls.Add(this.textBox2);
+            this.groupBox3.Controls.Add(this.tbxPuzzle);
             this.groupBox3.Controls.Add(this.label6);
             this.groupBox3.Location = new System.Drawing.Point(424, 107);
             this.groupBox3.Name = "groupBox3";
@@ -185,12 +185,12 @@
             this.label5.TabIndex = 2;
             this.label5.Text = "Aantal snoepjes";
             // 
-            // textBox2
+            // tbxPuzzle
             // 
-            this.textBox2.Location = new System.Drawing.Point(6, 45);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(100, 20);
-            this.textBox2.TabIndex = 1;
+            this.tbxPuzzle.Location = new System.Drawing.Point(6, 45);
+            this.tbxPuzzle.Name = "tbxPuzzle";
+            this.tbxPuzzle.Size = new System.Drawing.Size(100, 20);
+            this.tbxPuzzle.TabIndex = 1;
             // 
             // label6
             // 
@@ -377,7 +377,7 @@
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox tbxPuzzle;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Timer timer1;

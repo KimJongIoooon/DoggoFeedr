@@ -11,6 +11,7 @@ namespace Login
         public int id { get; private set; }
         int foodLevel;
         List<DateTime> mealtimes;
+        public int puzzle { get; private set; }
         public Dog dog { get; private set; }
         public Food food { get; private set; }
         public bool isActive { get; private set; }
@@ -25,6 +26,18 @@ namespace Login
             this.food = food;
             this.isActive = isActive;
         }
+
+        public Feedr(int id, int foodlevel, List<DateTime> mealtimes, Dog dog, Food food, int puzzle, bool isActive)
+        {
+            this.id = id;
+            this.foodLevel = foodlevel;
+            this.mealtimes = mealtimes;
+            this.dog = dog;
+            this.food = food;
+            this.puzzle = puzzle;
+            this.isActive = isActive;
+        }
+
     }
 
     

@@ -1,4 +1,6 @@
-﻿namespace Login
+﻿using System.ComponentModel;
+
+namespace Login
 {
     enum StageOfLife
     {
@@ -6,5 +8,12 @@
         Groeiende, // = 1,
         Drachtig, //= 2,
         Lacterend //= 607
+    }
+
+    enum Puzzles
+    {
+        [Description("Geen puzzel")]
+        Geen,
+        Balpuzzel
     }
 }

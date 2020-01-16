@@ -48,6 +48,8 @@ namespace Login
                 bodyWeight.Text = Convert.ToString(_account.Feedrs[0].dog.Weight);
                 tbxFeedr.Text = _account.Feedrs[0].id.ToString();
                 tbxFood.Text = _account.Foods[0].name;
+                Puzzles puzzles = (Puzzles)_account.Feedrs[0].puzzle;
+                tbxPuzzle.Text = puzzles.ToString();
             }
             catch
             {

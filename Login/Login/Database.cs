@@ -237,7 +237,7 @@ namespace Login
                 int level = myReader.GetInt32("level");
                 bool active = myReader.GetBoolean("active");
                 List < DateTime > mealtimes = new List<DateTime>();
-                Feedr feedr = new Feedr(feedrId, level, mealtimes, feedrDog, feedrFood, active);
+                Feedr feedr = new Feedr(feedrId, level, mealtimes, feedrDog, feedrFood, puzzle, active);
                 account.addFeedr(feedr);
             }
 
