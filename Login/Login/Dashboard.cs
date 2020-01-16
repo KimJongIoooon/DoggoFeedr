@@ -63,8 +63,19 @@ namespace Login
 
         private void cbxFeedrs_SelectedIndexChanged(object sender, EventArgs e)
         {
-            int index = cbxFeedrs.SelectedIndex;
-            Feedr feedr = (Feedr)cbxFeedrs.Items[index];
+            int index;
+            Feedr feedr = new Feedr();
+            try
+            {
+
+
+                index = cbxFeedrs.SelectedIndex;
+                feedr = (Feedr)cbxFeedrs.Items[index];
+            }
+            catch
+            {
+
+            }
             dogName.Text = feedr.dog.Name;
             bodyWeight.Text = feedr.dog.Weight.ToString();
             tbxFood.Text = feedr.food.name;
