@@ -14,10 +14,9 @@ namespace Login
 {
     public partial class Dashboard : Form
     {
-        MySqlConnection mysqlCon = new MySqlConnection("server=192.168.8.14;uid=root;pwd=root;database=DoggoFeedr;");
-        MySqlCommand cmd;
-        MySqlDataAdapter adapt;
         Account _account;
+        private TimeSpan timeToGo;
+        private System.Threading.Timer timer;
 
         public Dashboard(Account account)
         {
@@ -31,6 +30,38 @@ namespace Login
             label11.Text = progressBar.Value.ToString() + " %";
             userName.Text = _account.Name;
             dogName.Text = _account.Feedrs[0].dog.Name;
+        }
+
+        private void SetUpTimer(TimeSpan alertTime)
+        {
+            DateTime current = DateTime.Now;
+            timeToGo = alertTime - current.TimeOfDay;
+            if (timeToGo < TimeSpan.Zero)
+            {
+                return;//time already passed
+            }
+            this.timer = new System.Threading.Timer(x =>
+            {
+                this.ShowMessageToUser();
+            }, null, timeToGo, Timeout.InfiniteTimeSpan);
+        }
+
+        private void ShowMessageToUser()
+        {
+            if (this.InvokeRequired)
+            {
+                this.Invoke(new MethodInvoker(this.ShowMessageToUser));
+            }
+            else
+            {
+                MessageBox.Show("HET IS TIJD");
+            }
+        }
+
+        private void setTimer()
+        {
+            TimeSpan time = new TimeSpan(21, 10, 00);
+            SetUpTimer(time);
         }
 
         public void showPercentage()
@@ -61,7 +92,8 @@ namespace Login
         
         private void timer1_Tick(object sender, EventArgs e)
         {
-            label7.Text = DateTime.Now.ToString();
+            setTimer();
+            label7.Text = timeToGo.Hours + ":" + timeToGo.Minutes + ":" + timeToGo.Seconds.ToString();
         }
 
         private void testButton_Click(object sender, EventArgs e)
