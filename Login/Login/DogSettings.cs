@@ -94,7 +94,7 @@ namespace Login
                     if (_account.Dogs[i].Id == selectedDog)
                     {
                         _account.Dogs[i] = dog;
-                        MessageBox.Show("to do: fix update method in acc");
+                        
                     }    
                 }
                 
