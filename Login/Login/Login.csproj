@@ -57,12 +57,6 @@
     <Compile Include="CalculateFoodDog.Designer.cs">
       <DependentUpon>CalculateFoodDog.cs</DependentUpon>
     </Compile>
-    <Compile Include="chooseFeedr.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="chooseFeedr.Designer.cs">
-      <DependentUpon>chooseFeedr.cs</DependentUpon>
-    </Compile>
     <Compile Include="FeedTime.cs" />
     <Compile Include="FoodSetings.cs">
       <SubType>Form</SubType>

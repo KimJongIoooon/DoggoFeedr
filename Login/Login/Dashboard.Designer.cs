@@ -289,7 +289,6 @@
             // 
             // groupBox5
             // 
-            this.groupBox5.Controls.Add(this.lblSelec);
             this.groupBox5.Controls.Add(this.userName);
             this.groupBox5.Controls.Add(this.label10);
             this.groupBox5.Location = new System.Drawing.Point(21, 13);
