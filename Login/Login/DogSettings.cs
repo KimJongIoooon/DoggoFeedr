@@ -57,7 +57,7 @@ namespace Login
             }
         }
 
-        public void fillFields()
+        public void getDataFromFields()
         {
             Name = tbxDogName.Text;
             Weight = Convert.ToInt32(tbxBodyWeight.Text);
@@ -78,6 +78,7 @@ namespace Login
         
         private void addButton_Click(object sender, EventArgs e)
         {
+            getDataFromFields();
             var dog = new Dog(Name, _account.Id, dtpBirthDate.Value, Stage, Weight);
 
             if (selectedDog == -1)
@@ -98,7 +99,7 @@ namespace Login
                 }
                 
             }
-            fillFields();
+            getDataFromFields();
             // getData();
             getDogs();
             clearFields();
@@ -119,12 +120,18 @@ namespace Login
         private void lbxDogs_SelectedIndexChanged(object sender, EventArgs e)
         {
             int index = lbxDogs.SelectedIndex;
-            Dog dog = (Dog)lbxDogs.Items[index];
-            tbxDogName.Text = dog.Name;
-            tbxBodyWeight.Text = dog.Weight.ToString();
-            drdStageOfLife.SelectedIndex = dog.stageOfLife;
-            dtpBirthDate.Value = dog.dateOfBirth;
-            selectedDog = dog.Id;
+            try{
+                Dog dog = (Dog)lbxDogs.Items[index];
+                tbxDogName.Text = dog.Name;
+                tbxBodyWeight.Text = dog.Weight.ToString();
+                drdStageOfLife.SelectedIndex = dog.stageOfLife;
+                dtpBirthDate.Value = dog.dateOfBirth;
+                selectedDog = dog.Id;
+            } catch
+            {
+
+            }
+            
         }
 
         private void btnAddDog_Click(object sender, EventArgs e)

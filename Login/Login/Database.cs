@@ -94,6 +94,14 @@ namespace Login
             MySqlDataReader dataReader = mySqlCommand.ExecuteReader();  
             return dataReader;
         }
+        public void UpdateDogInfo(Dog dog, Account account)
+        {
+            con.Open();
+            string dogQuery = $"UPDATE `Dog` SET `Name` = '{dog.Name}', `Weight` = '{dog.Weight}', `StageOfLife` = '{dog.stageOfLife}', `DateOfBirth` = '{dog.dateOfBirth.ToString()}' WHERE `Dog`.`Id` = {dog.Id};";
+            MySqlCommand updateFeedr = new MySqlCommand(dogQuery, con);
+            updateFeedr.ExecuteNonQuery();
+            con.Close();
+        }
         public void UpdateAccountInfo(Account account)
         {
             con.Open();
