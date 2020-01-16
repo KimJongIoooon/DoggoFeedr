@@ -22,21 +22,21 @@ namespace Login
 
         public double getEnergieBehoefte()
         {
-            double EnergieBehoefte;
+            double energieBehoefte;
 
             switch (stageOfLife)
             {
                 case 0:
-                    EnergieBehoefte = 460 * Math.Pow(20, 0.75);
+                    energieBehoefte = 460 * Math.Pow(20, 0.75);
                     break;
                 case 1:
-                    EnergieBehoefte = 460 * Math.Pow(20, 0.75);
+                    energieBehoefte = 460 * Math.Pow(20, 0.75);
                     break;
                 case 2:
-                    EnergieBehoefte = 460 * Math.Pow(20, 0.75);
+                    energieBehoefte = 460 * Math.Pow(20, 0.75);
                     break;
                 case 3:
-                    EnergieBehoefte = 460 * Math.Pow(20, 0.75);
+                    energieBehoefte = 460 * Math.Pow(20, 0.75);
                     break;
                 default:
                     throw new Exception("error energie behofte");

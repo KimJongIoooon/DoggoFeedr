@@ -58,6 +58,7 @@
             this.userName = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.testButton = new System.Windows.Forms.Button();
+            this.lblSelec = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -296,6 +297,7 @@
             // 
             // groupBox5
             // 
+            this.groupBox5.Controls.Add(this.lblSelec);
             this.groupBox5.Controls.Add(this.userName);
             this.groupBox5.Controls.Add(this.label10);
             this.groupBox5.Location = new System.Drawing.Point(21, 13);
@@ -330,6 +332,15 @@
             this.testButton.Text = "Test progressBar";
             this.testButton.UseVisualStyleBackColor = true;
             this.testButton.Click += new System.EventHandler(this.testButton_Click);
+            // 
+            // lblSelec
+            // 
+            this.lblSelec.AutoSize = true;
+            this.lblSelec.Location = new System.Drawing.Point(403, 28);
+            this.lblSelec.Name = "lblSelec";
+            this.lblSelec.Size = new System.Drawing.Size(102, 13);
+            this.lblSelec.TabIndex = 2;
+            this.lblSelec.Text = "U heeft nu de feedr ";
             // 
             // Dashboard
             // 
@@ -394,5 +405,6 @@
         private System.Windows.Forms.ProgressBar progressBar;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Button testButton;
+        private System.Windows.Forms.Label lblSelec;
     }
 }
