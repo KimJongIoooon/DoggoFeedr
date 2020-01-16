@@ -51,6 +51,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Account.cs" />
+    <Compile Include="CalculateCalorieIntakeDog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CalculateCalorieIntakeDog.Designer.cs">
+      <DependentUpon>CalculateCalorieIntakeDog.cs</DependentUpon>
+    </Compile>
     <Compile Include="Global.cs" />
     <Compile Include="Dashboard.cs">
       <SubType>Form</SubType>
@@ -101,6 +107,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="CalculateCalorieIntakeDog.resx">
+      <DependentUpon>CalculateCalorieIntakeDog.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Create.resx">
       <DependentUpon>Create.cs</DependentUpon>
     </EmbeddedResource>

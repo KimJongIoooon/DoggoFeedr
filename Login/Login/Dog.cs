@@ -20,7 +20,7 @@ namespace Login
 
         }
 
-        public int getEnergieBehoefte()
+        public double getEnergieBehoefte()
         {
 
             double EnergieBehoefte;
@@ -45,7 +45,7 @@ namespace Login
             }
 
             
-            return energieBehoefte;
+            return EnergieBehoefte;
         }
         public Dog(int Id, string name, DateTime dateofbirth, int stageoflife, int weight)
         {
