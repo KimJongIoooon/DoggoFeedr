@@ -64,7 +64,7 @@ namespace Login
         private void cbxFeedrs_SelectedIndexChanged(object sender, EventArgs e)
         {
             int index;
-            Feedr feedr = new Feedr();
+            Feedr feedr = new Feedr(0, 0, new List<FeedTime>(), new Dog(), new Food(), false);
             try
             {
 
