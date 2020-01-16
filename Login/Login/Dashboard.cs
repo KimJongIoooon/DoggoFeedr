@@ -58,7 +58,7 @@ namespace Login
             }
         }
 
-        private void settimer()
+        private void setTimer()
         {
             TimeSpan time = new TimeSpan(21, 10, 00);
             SetUpTimer(time);
@@ -92,7 +92,7 @@ namespace Login
         
         private void timer1_Tick(object sender, EventArgs e)
         {
-            settimer();
+            setTimer();
             label7.Text = timeToGo.Hours + ":" + timeToGo.Minutes + ":" + timeToGo.Seconds.ToString();
         }
 
