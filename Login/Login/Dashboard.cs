@@ -45,7 +45,10 @@ namespace Login
             {
                 dogName.Text = _account.Feedrs[0].dog.Name;
                 bodyWeight.Text = Convert.ToString(_account.Feedrs[0].dog.Weight);
-                tbxFeedr.Text = _account.Feedrs[0].id.ToString();
+                foreach (Feedr feedrs in _account.Feedrs)
+                {
+                    cbxFeedrs.Items.Add(feedrs.id);
+                }
                 tbxFood.Text = _account.Foods[0].name;
                 Puzzles puzzles = (Puzzles)_account.Feedrs[0].puzzle;
                 tbxPuzzle.Text = puzzles.ToString();
@@ -56,6 +59,19 @@ namespace Login
             {
 
             }
+        }
+
+        private void cbxFeedrs_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            int index = cbxFeedrs.SelectedIndex;
+            Feedr feedr = (Feedr)cbxFeedrs.Items[index];
+            dogName.Text = feedr.dog.Name;
+            bodyWeight.Text = feedr.dog.Weight.ToString();
+            tbxFood.Text = feedr.food.name;
+            Puzzles puzzles = (Puzzles) feedr.puzzle;
+            tbxPuzzle.Text = puzzles.ToString();
+            progressBar.Value = feedr.foodLevel;
+            label11.Text = feedr.foodLevel.ToString();
         }
 
         private void SetUpTimer(TimeSpan alertTime)

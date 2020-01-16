@@ -233,8 +233,7 @@ namespace Login
                 {
 
                 }
-
-
+                
                 int dogId = myReader.GetInt32("DogId");
                 Dog feedrDog = new Dog();
                 foreach (Dog dog in account.Dogs)
@@ -261,9 +260,7 @@ namespace Login
                 Feedr feedr = new Feedr(feedrId, level, mealtimes, feedrDog, feedrFood, puzzle, active);
                 account.addFeedr(feedr);
             }
-
-
-
+            
             con.Close();
             return account;
         }

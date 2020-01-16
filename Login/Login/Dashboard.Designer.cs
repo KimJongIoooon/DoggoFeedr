@@ -52,13 +52,12 @@
             this.label11 = new System.Windows.Forms.Label();
             this.progressBar = new System.Windows.Forms.ProgressBar();
             this.label8 = new System.Windows.Forms.Label();
-            this.tbxFeedr = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.userName = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.testButton = new System.Windows.Forms.Button();
-            this.lblSelec = new System.Windows.Forms.Label();
+            this.cbxFeedrs = new System.Windows.Forms.ComboBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -240,10 +239,10 @@
             // 
             // groupBox4
             // 
+            this.groupBox4.Controls.Add(this.cbxFeedrs);
             this.groupBox4.Controls.Add(this.label11);
             this.groupBox4.Controls.Add(this.progressBar);
             this.groupBox4.Controls.Add(this.label8);
-            this.groupBox4.Controls.Add(this.tbxFeedr);
             this.groupBox4.Controls.Add(this.label9);
             this.groupBox4.Location = new System.Drawing.Point(629, 107);
             this.groupBox4.Name = "groupBox4";
@@ -278,13 +277,6 @@
             this.label8.Size = new System.Drawing.Size(34, 13);
             this.label8.TabIndex = 2;
             this.label8.Text = "Feedr";
-            // 
-            // tbxFeedr
-            // 
-            this.tbxFeedr.Location = new System.Drawing.Point(6, 45);
-            this.tbxFeedr.Name = "tbxFeedr";
-            this.tbxFeedr.Size = new System.Drawing.Size(100, 20);
-            this.tbxFeedr.TabIndex = 1;
             // 
             // label9
             // 
@@ -333,14 +325,14 @@
             this.testButton.UseVisualStyleBackColor = true;
             this.testButton.Click += new System.EventHandler(this.testButton_Click);
             // 
-            // lblSelec
+            // cbxFeedrs
             // 
-            this.lblSelec.AutoSize = true;
-            this.lblSelec.Location = new System.Drawing.Point(403, 28);
-            this.lblSelec.Name = "lblSelec";
-            this.lblSelec.Size = new System.Drawing.Size(102, 13);
-            this.lblSelec.TabIndex = 2;
-            this.lblSelec.Text = "U heeft nu de feedr ";
+            this.cbxFeedrs.FormattingEnabled = true;
+            this.cbxFeedrs.Location = new System.Drawing.Point(6, 45);
+            this.cbxFeedrs.Name = "cbxFeedrs";
+            this.cbxFeedrs.Size = new System.Drawing.Size(121, 21);
+            this.cbxFeedrs.TabIndex = 12;
+            this.cbxFeedrs.SelectedIndexChanged += new System.EventHandler(this.cbxFeedrs_SelectedIndexChanged);
             // 
             // Dashboard
             // 
@@ -397,7 +389,6 @@
         private System.Windows.Forms.Button feedrSettings;
         private System.Windows.Forms.GroupBox groupBox4;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.TextBox tbxFeedr;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.GroupBox groupBox5;
         private System.Windows.Forms.TextBox userName;
@@ -405,6 +396,6 @@
         private System.Windows.Forms.ProgressBar progressBar;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Button testButton;
-        private System.Windows.Forms.Label lblSelec;
+        private System.Windows.Forms.ComboBox cbxFeedrs;
     }
 }
