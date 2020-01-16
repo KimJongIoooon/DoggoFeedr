@@ -34,5 +34,14 @@ namespace Login
             this.stageOfLife = stageoflife;
             this.Weight = weight;
         }
+
+        public Dog(string name, int accountid, DateTime dateofbirth, int stageoflife, int weight)
+        {
+            this.Name = name;
+            this.dateOfBirth = dateofbirth;
+            this.stageOfLife = stageoflife;
+            this.Weight = weight;
+        }
+
     }
 }

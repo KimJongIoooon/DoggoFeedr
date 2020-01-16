@@ -22,9 +22,11 @@ namespace Login
         int Weight;
         int Stage;
         string BirthDate;
+        private Account _account;
 
-        public DogSettings()
+        public DogSettings(Account account)
         {
+            _account = account;
             InitializeComponent();
         }
 
@@ -90,9 +92,24 @@ namespace Login
         
         private void addButton_Click(object sender, EventArgs e)
         {
-            
+            fillFields();
+            var Dog = new Dog(Name, Account.Id, dtpBirthDate.Value, Stage, Weight);
+            var Database = new Database();
+            Database.DogInsert(Account.Id, Name, Weight, Stage, BirthDate);
             getData();
-            var Dog = new Dog(Name, dtpBirthDate.Value, Stage, Weight);
+            clearFields();
+        }
+
+        private void DogSettings_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void btnBack_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            var Dashboard = new Dashboard(_account);
+            Dashboard.Show();
         }
     }
 }

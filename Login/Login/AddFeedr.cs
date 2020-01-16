@@ -12,6 +12,8 @@ namespace Login
 {
     public partial class AddFeedr : Form
     {
+        private Account _account;
+
         public AddFeedr()
         {
             InitializeComponent();
@@ -20,7 +22,10 @@ namespace Login
         private void btnDoorgaan_Click(object sender, EventArgs e)
         {
             var Database = new Database();
-            Database.insertFeedrId(1, Convert.ToInt32(tbxFeederId.Text));
+            Database.insertFeedrId(Account.Id, Convert.ToInt32(tbxFeederId.Text));
+            this.Hide();
+            var Dashboard = new Dashboard(_account);
+            Dashboard.Show();
         }
     }
 }
