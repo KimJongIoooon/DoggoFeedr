@@ -85,18 +85,41 @@ namespace Login
             label11.Text = feedr.foodLevel.ToString();
         }
 
-        private void SetUpTimer(TimeSpan alertTime)
+        private void SetUpTimer(List<TimeSpan> alertTime)
         {
             DateTime current = DateTime.Now;
-            timeToGo = alertTime - current.TimeOfDay;
-            if (timeToGo < TimeSpan.Zero)
+            bool timerset = false ;
+            int days = 0;
+            TimeSpan setTimeSpan = new TimeSpan();
+            
+            while (!timerset)
             {
-                return;//time already passed 
+                
+                foreach (TimeSpan timeSpan in alertTime)
+                {
+                    TimeSpan time  = timeSpan - current.TimeOfDay; // + new TimeSpan(days, 0, 0, 0);
+                    if ((time > TimeSpan.Zero) && !timerset)
+                    {
+                        timeToGo = time;
+                        timerset = true;
+                    }
+
+                }
+                days++;
+                if (days > 10)
+                {
+                    return;
+                }
             }
-            this.timer = new System.Threading.Timer(x =>
+
+            if (timerset)
             {
-                this.ShowMessageToUser();
-            }, null, timeToGo, Timeout.InfiniteTimeSpan);
+                this.timer = new System.Threading.Timer(x =>
+                {
+                    this.ShowMessageToUser();
+                }, null, timeToGo, Timeout.InfiniteTimeSpan);
+            }
+            
         }
 
         private void ShowMessageToUser()
@@ -113,8 +136,11 @@ namespace Login
 
         private void settimer()
         {
-            TimeSpan time = new TimeSpan(21, 10, 00);
-            SetUpTimer(time);
+            TimeSpan time = new TimeSpan(0,25,10);
+            TimeSpan time1 = new TimeSpan(9,9,25);
+            TimeSpan time2= new TimeSpan(16,0, 50);
+            List <TimeSpan> times = new List<TimeSpan>() { time, time1, time2 };
+            SetUpTimer(times);
         }
 
 
