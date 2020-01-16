@@ -43,20 +43,22 @@
             // dgvFeedrs
             // 
             this.dgvFeedrs.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvFeedrs.Location = new System.Drawing.Point(13, 13);
+            this.dgvFeedrs.Location = new System.Drawing.Point(10, 11);
+            this.dgvFeedrs.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.dgvFeedrs.Name = "dgvFeedrs";
             this.dgvFeedrs.RowHeadersWidth = 51;
             this.dgvFeedrs.RowTemplate.Height = 24;
-            this.dgvFeedrs.Size = new System.Drawing.Size(499, 425);
+            this.dgvFeedrs.Size = new System.Drawing.Size(374, 345);
             this.dgvFeedrs.TabIndex = 0;
             // 
             // lblFeedr
             // 
             this.lblFeedr.AutoSize = true;
             this.lblFeedr.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
-            this.lblFeedr.Location = new System.Drawing.Point(539, 19);
+            this.lblFeedr.Location = new System.Drawing.Point(404, 15);
+            this.lblFeedr.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblFeedr.Name = "lblFeedr";
-            this.lblFeedr.Size = new System.Drawing.Size(115, 39);
+            this.lblFeedr.Size = new System.Drawing.Size(93, 31);
             this.lblFeedr.TabIndex = 2;
             this.lblFeedr.Text = "Feedr:";
             // 
@@ -64,9 +66,10 @@
             // 
             this.lblDog.AutoSize = true;
             this.lblDog.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
-            this.lblDog.Location = new System.Drawing.Point(539, 80);
+            this.lblDog.Location = new System.Drawing.Point(404, 65);
+            this.lblDog.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblDog.Name = "lblDog";
-            this.lblDog.Size = new System.Drawing.Size(117, 39);
+            this.lblDog.Size = new System.Drawing.Size(94, 31);
             this.lblDog.TabIndex = 3;
             this.lblDog.Text = "Hond: ";
             // 
@@ -74,18 +77,20 @@
             // 
             this.cbDog.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
             this.cbDog.FormattingEnabled = true;
-            this.cbDog.Location = new System.Drawing.Point(774, 73);
+            this.cbDog.Location = new System.Drawing.Point(580, 59);
+            this.cbDog.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.cbDog.Name = "cbDog";
-            this.cbDog.Size = new System.Drawing.Size(246, 46);
+            this.cbDog.Size = new System.Drawing.Size(186, 39);
             this.cbDog.TabIndex = 4;
             // 
             // cbFeedr
             // 
             this.cbFeedr.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
             this.cbFeedr.FormattingEnabled = true;
-            this.cbFeedr.Location = new System.Drawing.Point(774, 12);
+            this.cbFeedr.Location = new System.Drawing.Point(580, 10);
+            this.cbFeedr.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.cbFeedr.Name = "cbFeedr";
-            this.cbFeedr.Size = new System.Drawing.Size(246, 46);
+            this.cbFeedr.Size = new System.Drawing.Size(186, 39);
             this.cbFeedr.TabIndex = 5;
             this.cbFeedr.SelectedIndexChanged += new System.EventHandler(this.cbFeedr_SelectedIndexChanged);
             // 
@@ -93,9 +98,10 @@
             // 
             this.lblpuzzle.AutoSize = true;
             this.lblpuzzle.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
-            this.lblpuzzle.Location = new System.Drawing.Point(539, 142);
+            this.lblpuzzle.Location = new System.Drawing.Point(404, 115);
+            this.lblpuzzle.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblpuzzle.Name = "lblpuzzle";
-            this.lblpuzzle.Size = new System.Drawing.Size(129, 39);
+            this.lblpuzzle.Size = new System.Drawing.Size(104, 31);
             this.lblpuzzle.TabIndex = 6;
             this.lblpuzzle.Text = "Puzzel:";
             // 
@@ -103,17 +109,19 @@
             // 
             this.cbPuzzle.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
             this.cbPuzzle.FormattingEnabled = true;
-            this.cbPuzzle.Location = new System.Drawing.Point(774, 135);
+            this.cbPuzzle.Location = new System.Drawing.Point(580, 110);
+            this.cbPuzzle.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.cbPuzzle.Name = "cbPuzzle";
-            this.cbPuzzle.Size = new System.Drawing.Size(246, 46);
+            this.cbPuzzle.Size = new System.Drawing.Size(186, 39);
             this.cbPuzzle.TabIndex = 8;
             // 
             // btnFoodSettings
             // 
             this.btnFoodSettings.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
-            this.btnFoodSettings.Location = new System.Drawing.Point(774, 202);
+            this.btnFoodSettings.Location = new System.Drawing.Point(580, 164);
+            this.btnFoodSettings.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnFoodSettings.Name = "btnFoodSettings";
-            this.btnFoodSettings.Size = new System.Drawing.Size(205, 97);
+            this.btnFoodSettings.Size = new System.Drawing.Size(186, 79);
             this.btnFoodSettings.TabIndex = 9;
             this.btnFoodSettings.Text = "voer instellingen";
             this.btnFoodSettings.UseVisualStyleBackColor = true;
@@ -121,9 +129,10 @@
             // btnSave
             // 
             this.btnSave.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
-            this.btnSave.Location = new System.Drawing.Point(546, 202);
+            this.btnSave.Location = new System.Drawing.Point(410, 164);
+            this.btnSave.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(190, 97);
+            this.btnSave.Size = new System.Drawing.Size(142, 79);
             this.btnSave.TabIndex = 10;
             this.btnSave.Text = "Opslaan";
             this.btnSave.UseVisualStyleBackColor = true;
@@ -131,9 +140,9 @@
             // 
             // FeedrSettings
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1068, 474);
+            this.ClientSize = new System.Drawing.Size(801, 385);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.btnFoodSettings);
             this.Controls.Add(this.cbPuzzle);
@@ -143,6 +152,7 @@
             this.Controls.Add(this.lblDog);
             this.Controls.Add(this.lblFeedr);
             this.Controls.Add(this.dgvFeedrs);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "FeedrSettings";
             this.Text = "Feedr Instellingen";
             this.Load += new System.EventHandler(this.FeedrSettings_Load);
