@@ -94,6 +94,45 @@ namespace Login
             MySqlDataReader dataReader = mySqlCommand.ExecuteReader();  
             return dataReader;
         }
+        public void UpdateAccountInfo(Account account)
+        {
+            con.Open();
+            int accountId = account.Id;
+            string accountName = account.Name;
+
+            string accUpdateQuery = $"UPDATE `Account` SET `Name` = '{account.Name}' WHERE `Account`.`Id` = 1;";
+
+            //update account
+            string accQuery = $"UPDATE `Account` SET `Name` = '{account.Name}' WHERE `Account`.`Id` = 1;";
+            MySqlCommand update = new MySqlCommand(accQuery, con);
+            update.ExecuteNonQuery();
+
+            //update feedr
+            //Id AccountId DogId FoodId FoodPerMeal Puzzle Level Active
+            foreach (Feedr feedr in account.Feedrs)
+            {
+                string feedrQuery = $"UPDATE `Feedr` SET `DogId` = '{feedr.dog.Id}'  `AccountId` = '{account.Id}', `FoodId` = '{feedr.food.Id}', `FoodPerMeal` = '{feedr.foodPerMeal}', `Puzzle` = '{1}', `Level` = '{0}', `Active` = '{feedr.isActive}' WHERE `Account`.`Id` = {account.Id};";
+                MySqlCommand updateFeedr = new MySqlCommand(accQuery, con);
+                updateFeedr.ExecuteNonQuery();
+            }
+
+            //update Dogs
+            foreach (Dog dog in account.Dogs)
+            {
+                string feedrQuery = $"UPDATE `Dog` SET `Name` = '{dog.Name}', `Weight` = '{dog.Weight}', `StageOfLife` = '{dog.stageOfLife}', `DateOfBirth` = '{dog.dateOfBirth}' WHERE `Dog`.`Id` = {dog.Id};";
+                MySqlCommand updateFeedr = new MySqlCommand(accQuery, con);
+                updateFeedr.ExecuteNonQuery();
+            }
+            //update Foods
+            foreach (Food food in account.Foods)
+            {
+                string foodQuery = $"UPDATE `Food`, `Name` = '{food.name}', `Energy` = '{food.energyContent}' WHERE `Food`.`Id` = '{food.Id}';";
+                MySqlCommand updateFeedr = new MySqlCommand(accQuery, con);
+                updateFeedr.ExecuteNonQuery();
+            }
+
+            con.Close();
+        }
         public Account GetAcountInfo(int id)
         {
             //get account table
@@ -219,6 +258,7 @@ namespace Login
             {
             }
             con.Close();
+            datareader.Close();
         }
         
         public List<Dog> AccountDogs(int id)

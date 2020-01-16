@@ -10,13 +10,13 @@ namespace Login
     {
         public int Id { get; private set; }
         public string name { get; private set; }
-        int energy;//energy per volume in Colories per m/2
-
+        public int energyContent { get; private set; }//energy per volume in Colories per m/2
+        
         public Food()
         {
 
         }
-        public Food(int id, string name, int energy)
+        public Food(int id, string name, int energyContent)
         {
             this.Id = id;
             this.name = name;

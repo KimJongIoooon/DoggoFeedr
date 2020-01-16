@@ -29,7 +29,7 @@ namespace Login
         {
             dogData();
             label11.Text = progressBar.Value.ToString() + " %";
-            userName.Text = Account.Name;
+            userName.Text = _account.Name;
             dogName.Text = _account.Feedrs[0].dog.Name;
         }
 

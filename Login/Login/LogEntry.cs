@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Login
 {
-    class LogEntry
+    public class LogEntry
     {
         int _id;
 
