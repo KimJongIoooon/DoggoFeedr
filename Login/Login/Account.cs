@@ -12,8 +12,8 @@ namespace Login
     public class Account
     {
         
-        public static int Id { get; private set; } 
-        public static string Name { get; private set; }
+        public int Id { get; private set; } 
+        public string Name { get; private set; }
         string Password;
         string Email;
         bool isLoggedIn;
