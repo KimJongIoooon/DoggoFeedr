@@ -80,24 +80,32 @@ namespace Login
         {
             var dog = new Dog(Name, _account.Id, dtpBirthDate.Value, Stage, Weight);
 
-            if (selectedDog == -1)
+            if (tbxDogName.Text.Trim() == string.Empty || tbxBodyWeight.Text.Trim() == string.Empty || drdStageOfLife.Text.Trim() == string.Empty || dtpBirthDate.Text.Trim() == string.Empty || tbxEnergy.Text.Trim() == string.Empty)
             {
-                var Database = new Database();
-                _account.addDog(dog);
-                Database.DogInsert(_account.Id, Name, Weight, Stage, BirthDate);
-            }
+                MessageBox.Show("Vul alle velden in");
+                }
             else
             {
-                for (int i = 0; i < _account.Dogs.Count; i++)
+                if (selectedDog == -1)
                 {
-                    if (_account.Dogs[i].Id == selectedDog)
-                    {
-                        _account.Dogs[i] = dog;
-                        MessageBox.Show("to do: fix update method in acc");
-                    }    
+                    var Database = new Database();
+                    _account.addDog(dog);
+                    Database.DogInsert(_account.Id, Name, Weight, Stage, BirthDate);
                 }
-                
+                else
+                {
+                    for (int i = 0; i < _account.Dogs.Count; i++)
+                    {
+                        if (_account.Dogs[i].Id == selectedDog)
+                        {
+                            _account.Dogs[i] = dog;
+                            MessageBox.Show("to do: fix update method in acc");
+                        }
+                    }
+
+                }
             }
+
             fillFields();
             // getData();
             getDogs();

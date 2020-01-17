@@ -42,7 +42,7 @@
             this.lbxDogs = new System.Windows.Forms.ListBox();
             this.btnAddDog = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.tbxEnergy = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
@@ -171,13 +171,13 @@
             this.label5.TabIndex = 15;
             this.label5.Text = "Energiebehoefte";
             // 
-            // textBox1
+            // tbxEnergy
             // 
-            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(276, 434);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(198, 38);
-            this.textBox1.TabIndex = 16;
+            this.tbxEnergy.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbxEnergy.Location = new System.Drawing.Point(276, 434);
+            this.tbxEnergy.Name = "tbxEnergy";
+            this.tbxEnergy.Size = new System.Drawing.Size(198, 38);
+            this.tbxEnergy.TabIndex = 16;
             // 
             // button1
             // 
@@ -196,7 +196,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(802, 607);
             this.Controls.Add(this.button1);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.tbxEnergy);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.btnAddDog);
             this.Controls.Add(this.lbxDogs);
@@ -234,7 +234,7 @@
         private System.Windows.Forms.ListBox lbxDogs;
         private System.Windows.Forms.Button btnAddDog;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox tbxEnergy;
         private System.Windows.Forms.Button button1;
     }
 }

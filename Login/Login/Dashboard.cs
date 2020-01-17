@@ -67,8 +67,6 @@ namespace Login
             Feedr feedr = new Feedr(0, 0, new List<FeedTime>(), new Dog(), new Food(), false);
             try
             {
-
-
                 index = cbxFeedrs.SelectedIndex;
                 feedr = (Feedr)cbxFeedrs.Items[index];
             }

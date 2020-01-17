@@ -25,8 +25,16 @@ namespace Login
 
         private void makeAccount_Click(object sender, EventArgs e)
         {
-            var Database = new Database();
-            Database.AddAccount(userName.Text, passWord.Text);
+            if (userName.Text.Trim() == string.Empty || passWord.Text.Trim() == string.Empty)
+            {
+                MessageBox.Show("Vul een wachtwoord of gebruikersnaam in");
+            }
+            else
+            {
+                var Database = new Database();
+                Database.AddAccount(userName.Text, passWord.Text);
+            }
+
         }
 
         private void Create_FormClosed(object sender, FormClosedEventArgs e)
