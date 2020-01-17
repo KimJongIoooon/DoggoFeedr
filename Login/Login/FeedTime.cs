@@ -19,5 +19,11 @@ namespace Login
             Time = time;
         }
 
+        public FeedTime(int id, string time)
+        {
+            Id = id;
+            Time = time;
+        }
+
     }
 }

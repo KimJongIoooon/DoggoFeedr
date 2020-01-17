@@ -11,8 +11,8 @@ namespace Login
 {
     public class Account
     {
-        
-        public int Id { get; private set; } 
+
+        public int Id { get; private set; }
         public string Name { get; private set; }
         string Password;
         string Email;
@@ -22,7 +22,7 @@ namespace Login
         public List<Food> Foods = new List<Food>();
         public Account()
         {
-            
+
         }
 
         public Account(int id, string name, string password, string email)
@@ -40,9 +40,11 @@ namespace Login
 
         public void addFeedr(Feedr feedr)
         {
-            Feedrs.Add(feedr);
+            
+            this.Feedrs.Add(feedr);
         }
-        
+
+
         public void addFood(Food food)
         {
             Foods.Add(food);

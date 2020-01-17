@@ -12,7 +12,7 @@ namespace Login
 {
     class Database
     {
-        private MySqlConnection con = new MySqlConnection("server=192.168.8.14;uid=root;pwd=root;database=DoggoFeedr;");
+        public MySqlConnection con { get; private set; } = new MySqlConnection("server=192.168.8.14;uid=root;pwd=root;database=DoggoFeedr;");
         private MySqlDataAdapter loginAdapter;
         private MySqlDataAdapter idSelect;
         private MySqlCommand insertAdapter;
@@ -126,15 +126,11 @@ namespace Login
                 //update Times
                 foreach (FeedTime time in feedr.mealtimes)
                 {
-                    int count = 0;
-                    if (count == 0)
-                    {
-                        string timeQuery = $"UPDATE `Time` SET `FeedrId` = '{feedr.id}', `Time` = '{time}' WHERE `Id` = '{time.Id}';";
-                        MySqlCommand updatetime = new MySqlCommand(timeQuery, con);
-                        updateFeedr.ExecuteNonQuery();
-                    }
-
+                    string timeQuery = $"UPDATE `Time` SET `FeedrId` = '{feedr.id}', `Time` = '{time}' WHERE `Id` = '{time.Id}';";
+                    MySqlCommand updatetime = new MySqlCommand(timeQuery, con);
+                    updateFeedr.ExecuteNonQuery();
                 }
+
             }
 
             //update Dogs
@@ -180,6 +176,10 @@ namespace Login
 
 
             myReader.Close();
+
+            //get time Count and set the static id;
+            getFeedTimeCount();
+
             //get dogs info
             string DogQuery = $"SELECT * FROM Dog WHERE accountId = {id}";
             mySqlCommand = new MySqlCommand(DogQuery, con);
@@ -221,7 +221,6 @@ namespace Login
             mySqlCommand = new MySqlCommand(feedrQuery, con);
             myReader = mySqlCommand.ExecuteReader();
 
-
             while (myReader.Read())
             {
                 int feedrId = 0;
@@ -233,7 +232,7 @@ namespace Login
                 {
 
                 }
-                
+
                 int dogId = myReader.GetInt32("DogId");
                 Dog feedrDog = new Dog();
                 foreach (Dog dog in account.Dogs)
@@ -257,10 +256,27 @@ namespace Login
                 int level = myReader.GetInt32("level");
                 bool active = myReader.GetBoolean("active");
                 List<FeedTime> mealtimes = new List<FeedTime>();
-                Feedr feedr = new Feedr(feedrId, level, mealtimes, feedrDog, feedrFood, puzzle, active);
+                Feedr feedr = new Feedr(feedrId, level, mealtimes, feedrDog, feedrFood, puzzle, active); ;
+                Database database = new Database();
+                string query = $"SELECT Count(*) FROM Time WHERE `FeedrId` = {feedrId}";
+                database.con.Open();
+                MySqlCommand countcommand = new MySqlCommand(query, database.con);
+                int count = Convert.ToInt32(countcommand.ExecuteScalar());
+                for (int i = 0; i < count; i++)
+                {
+                    int i1 = i + 1;
+                    string selectTimeQuery = $"SELECT Id FROM Time WHERE `FeedrId` = {feedrId} ORDER BY Id LIMIT {i1}";
+                    MySqlCommand selectCommand = new MySqlCommand(selectTimeQuery, database.con);
+                    string selectTimeQuery2 = $"SELECT Time FROM Time WHERE `FeedrId` = {feedrId} ORDER BY Id LIMIT {i1}";
+                    MySqlCommand selectCommand2 = new MySqlCommand(selectTimeQuery, database.con);
+                    int Timeid = selectCommand.ExecuteNonQuery();
+                    string Time = selectCommand2.ExecuteNonQuery().ToString();
+                    FeedTime feedTime = new FeedTime(Timeid, Time);
+                    feedr.mealtimes.Add(feedTime);
+                }
+                database.con.Close();
                 account.addFeedr(feedr);
             }
-            
             con.Close();
             return account;
         }
@@ -268,7 +284,6 @@ namespace Login
         public void getFeedTimeCount()
         {
             string query = "SELECT Count(*) FROM Time";
-            con.Open();
             MySqlCommand countcommand = new MySqlCommand(query, con);
             int count = Convert.ToInt32(countcommand.ExecuteScalar());
             FeedTime.NextId = count + 1;
